@@ -48,9 +48,11 @@ public class LongestIncreasingSubSequence {
 
     public static void main(String[] args) {
         LongestIncreasingSubSequence longestIncreasingSubsequence = new LongestIncreasingSubSequence();
-        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15));
+//        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15));
+        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(10,22,9,33,21,50,41,60,80));
         longestIncreasingSubsequence.findSubSequences(input);
         ArrayList<Integer> largestSequence = new ArrayList<Integer>();
+
         for (ArrayList<Integer> list : longestIncreasingSubsequence.sequences) {
 
             if (largestSequence.size() < list.size()) {
