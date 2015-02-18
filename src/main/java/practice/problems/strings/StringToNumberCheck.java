@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.strings;
 
 /**
  * Function to judge whether input string is number or not.

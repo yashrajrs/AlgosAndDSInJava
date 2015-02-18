@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.cache;
 
 import java.util.ArrayList;
 
@@ -52,7 +52,7 @@ public class LRU {
      * Finds the cache element.
      *
      * @param value the element value to be searched.
-     * @return {@link practice.problems.CacheElement} if the element is in the cache, else returns null.
+     * @return {@link practice.problems.cache.CacheElement} if the element is in the cache, else returns null.
      */
     private CacheElement findElement(Integer value) {
         for (CacheElement cacheElement : cache) {

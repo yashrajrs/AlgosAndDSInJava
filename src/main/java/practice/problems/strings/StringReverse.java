@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.strings;
 
 /**
  * Performs string reverse.

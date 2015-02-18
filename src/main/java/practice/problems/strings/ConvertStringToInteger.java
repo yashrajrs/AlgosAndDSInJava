@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.strings;
 
 /**
  * Converts a string "998989" to 998989.

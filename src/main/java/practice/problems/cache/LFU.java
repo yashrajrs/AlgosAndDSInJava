@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.cache;
 
 import java.util.ArrayList;
 import java.util.Collections;
