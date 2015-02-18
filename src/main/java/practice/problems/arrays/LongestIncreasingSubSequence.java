@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.arrays;
 
 import com.google.common.collect.Sets;
 
