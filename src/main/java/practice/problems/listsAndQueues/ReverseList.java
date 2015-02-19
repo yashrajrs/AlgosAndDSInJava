@@ -1,6 +1,6 @@
 package practice.problems.listsAndQueues;
 
-import practice.dataStructures.queue.Node;
+import practice.dataStructures.Node;
 import practice.dataStructures.queue.Queue;
 
 /**

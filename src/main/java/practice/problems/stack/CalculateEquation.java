@@ -1,4 +1,4 @@
-package practice.problems.arrays;
+package practice.problems.stack;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
