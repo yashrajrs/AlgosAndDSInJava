@@ -1,5 +1,7 @@
 package practice.dataStructures.queue;
 
+import practice.dataStructures.Node;
+
 import java.util.ArrayList;
 
 /**

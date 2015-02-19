@@ -1,4 +1,4 @@
-package practice.dataStructures.queue;
+package practice.dataStructures;
 
 /**
  * Object for holding node information.
