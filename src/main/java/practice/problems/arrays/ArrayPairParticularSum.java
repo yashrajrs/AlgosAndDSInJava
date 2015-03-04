@@ -15,47 +15,66 @@ public class ArrayPairParticularSum {
 
     MergeSort mergeSort = new MergeSort();
 
+    // First approach
     public void findPair(Integer[] input, Integer pairValue) {
 
         Integer[] sort = mergeSort.sort(input);
         ArrayList<Integer> sorted = new ArrayList<Integer>(Arrays.asList(sort));
 
         // First approach
-//        for (Integer integer : sorted){
-//            Integer value = pairValue - integer;
-//            if (sorted.contains(value)){
-//                System.out.println(String.format("The pair is {%d, %d}", integer, value));
-//                return;
-//            }
-//        }
-//        System.out.println("Cannot find pair for the value " + pairValue);
-
-
-        // Second approach
-        int i = 0, j = sort.length - 1;
-        Integer left = sort[0];
-        Integer right = sort[j];
-        while (i < sort.length && j > 0) {
-            System.out.println(String.format("Current pair is {%d, %d}", left, right));
-            if (left + right == pairValue) {
-                System.out.println(String.format("The pair is {%d, %d}", left, right));
-                return;
-            } else if (left + right > pairValue) {
-                j--;
-                right = sort[j];
-            } else {
-                i++;
-                left = sort[i];
+        for (Integer integer : sorted) {
+            Integer value = pairValue - integer;
+            if (sorted.contains(value)) {
+                System.out.println(String.format("The pair is {%d, %d}", integer, value));
             }
         }
-        System.out.println("Cannot find pair for the value " + pairValue);
+
+    }
+
+    // Second approach using hash map
+    public void findPair1(Integer[] input, Integer pairValue) {
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (Integer integer : input) {
+            list.add(integer);
+        }
+
+        for (Integer integer : list) {
+            Integer value = pairValue - integer;
+            if (list.contains(value)) {
+                System.out.println(String.format("The pair is {%d, %d}", integer, value));
+            }
+        }
+
+    }
+
+    // Third approach
+    public void findPair2(Integer[] input, Integer pairValue) {
+
+        Integer[] sort = mergeSort.sort(input);
+
+        int i = 0, j = sort.length - 1;
+        while (i < j) {
+            int sum = sort[i] + sort[j];
+            if (sum == pairValue) {
+                System.out.println(String.format("The pair is {%d, %d}", sort[i], sort[j]));
+                i++;
+                j--;
+            } else if (sum > pairValue) {
+                j--;
+            } else {
+                i++;
+            }
+        }
 
     }
 
     public static void main(String[] args) {
         ArrayPairParticularSum arrayPairParticularSum = new ArrayPairParticularSum();
         Integer[] input = {9, 8, 7, 6, 5, 4, 3, 1, 2};
-        arrayPairParticularSum.findPair(input, 4);
+        arrayPairParticularSum.findPair(input, 5);
+        arrayPairParticularSum.findPair1(input, 5);
+        arrayPairParticularSum.findPair2(input, 5);
     }
 
 }
