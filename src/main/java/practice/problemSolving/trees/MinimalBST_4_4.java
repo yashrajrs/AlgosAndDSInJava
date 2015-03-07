@@ -1,4 +1,4 @@
-package practice.problems.trees;
+package practice.problemSolving.trees;
 
 import practice.dataStructures.trees.TreeNode;
 
@@ -7,7 +7,7 @@ import practice.dataStructures.trees.TreeNode;
  *
  * @author Yashraj R. Sontakke
  */
-public class MinimalBST {
+public class MinimalBST_4_4 {
 
     TreeNode createMinimalBST(final int[] a, final int start, final int end) {
         if (end < start) {
@@ -21,9 +21,10 @@ public class MinimalBST {
     }
 
     public static void main(String[] args) {
-        MinimalBST minimalBST = new MinimalBST();
+        MinimalBST_4_4 minimalBST = new MinimalBST_4_4();
         int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         TreeNode n = minimalBST.createMinimalBST(a, 0, a.length - 1);
+
 
 
     }
