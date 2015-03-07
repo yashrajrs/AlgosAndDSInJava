@@ -17,15 +17,6 @@ public class PathValue_4_9 {
 
     public Set<ArrayList<Integer>> paths = Sets.newHashSet();
 
-    public void getPaths(TreeNode node, Integer value) {
-        ArrayList<Integer> path = new ArrayList<Integer>();
-        getPaths(node.getLeftChild(), path, value);
-        getPaths(node.getRightChild(), path, value);
-        path.add(node.getData());
-        getPaths(node.getLeftChild(), path, value);
-        getPaths(node.getRightChild(), path, value);
-    }
-
     public void getPaths(TreeNode node, ArrayList<Integer> path, Integer value) {
         if (node == null) {
             if (sum(path) == value) {
@@ -68,7 +59,7 @@ public class PathValue_4_9 {
         node3.setRightChild(node7);
 
         PathValue_4_9 pathValue = new PathValue_4_9();
-        pathValue.getPaths(node1, 10);
+        pathValue.getPaths(node1, new ArrayList<Integer>(), 10);
 
         System.out.println(pathValue.paths.toString());
     }

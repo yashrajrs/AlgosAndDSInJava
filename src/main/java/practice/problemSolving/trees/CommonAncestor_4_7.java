@@ -23,26 +23,28 @@ public class CommonAncestor_4_7 {
 
     public Result findCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
         if (root == null){
-            return null;
+            return new Result(null,false);
         }
         if (root == p && root ==q){
             return new Result(root, true);
         }
 
         Result rx = findCommonAncestor(root.getLeftChild(), p, q);
-        if (rx !=null){
+        if (rx.isAncestor){
             return rx;
         }
 
         Result ry = findCommonAncestor(root.getRightChild(), p, q);
-        if (ry!=null){
+        if (ry.isAncestor){
             return ry;
         }
-        if (rx!=null && ry!=null){
+        if (rx.node!=null && ry.node!=null){
             return new Result(root,true);
         }else if (root == p || root==q){
-            boolean isAncestor = rx !=null && rx.node !=null || ry!=null &&ry.node !=null ?true:false;
+            boolean isAncestor = rx.node != null || ry.node != null ?
+                    true : false;
             return new Result(root, isAncestor);
+
         }else{
             return new Result(rx.node!=null ?rx.node:ry.node,false );
         }
