@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problemSolving.recursion;
 
 import java.util.ArrayList;
 
@@ -7,9 +7,10 @@ import java.util.ArrayList;
  *
  * @author Yashraj R. Sontakke
  */
-public class NQueens {
+public class NQueens_9_9 {
 
     static final Integer GRID_SIZE = 8;
+
 
     public void placeQueens(int row, Integer[] columns, ArrayList<Integer[]> results) {
         if (row == GRID_SIZE) {
@@ -43,7 +44,7 @@ public class NQueens {
     }
 
     public static void main(String[] args) {
-        NQueens nQueens = new NQueens();
+        NQueens_9_9 nQueens = new NQueens_9_9();
         Integer[] columns = new Integer[8];
         ArrayList<Integer[]> results = new ArrayList<Integer[]>();
         nQueens.placeQueens(0, columns, results);

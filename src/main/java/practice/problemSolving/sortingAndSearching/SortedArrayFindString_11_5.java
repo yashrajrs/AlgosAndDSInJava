@@ -1,4 +1,4 @@
-package practice.problemSolving;
+package practice.problemSolving.sortingAndSearching;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Yashraj R. Sontakke
  */
-public class SortedArrayFindString_11_4 {
+public class SortedArrayFindString_11_5 {
 
     /**
      * First approach
@@ -68,7 +68,7 @@ public class SortedArrayFindString_11_4 {
 
 
     public static void main(String[] args) {
-        SortedArrayFindString_11_4 s = new SortedArrayFindString_11_4();
+        SortedArrayFindString_11_5 s = new SortedArrayFindString_11_5();
         List<String> input = Arrays.asList("at", "", "", "", "ball", "", "", "car", "", "", "dad", "", "");
         String search = "ball";
         Integer output = s.getLocation(input, search);

@@ -1,4 +1,4 @@
-package practice.problemSolving;
+package practice.problemSolving.sortingAndSearching;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package practice.problemSolving;
+package practice.problemSolving.sortingAndSearching;
 
 /**
  * Object to store height and weight.

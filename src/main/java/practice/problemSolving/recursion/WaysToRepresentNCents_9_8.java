@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problemSolving.recursion;
 
 /**
  * Calculates the number of ways n cents can be represented using quarters (25 cents), dimes (10 cents),
@@ -6,7 +6,7 @@ package practice.problems;
  *
  * @author Yashraj R. Sontakke
  */
-public class WaysToRepresentNCents {
+public class WaysToRepresentNCents_9_8 {
 
     public Integer waysToRepresent(Integer nCents, Integer currentValue) {
         if (currentValue == nCents) {
@@ -24,7 +24,7 @@ public class WaysToRepresentNCents {
 
 
     public static void main(String[] args) {
-        WaysToRepresentNCents waysToRepresentNCents = new WaysToRepresentNCents();
+        WaysToRepresentNCents_9_8 waysToRepresentNCents = new WaysToRepresentNCents_9_8();
         System.out.println("No of ways to represent 10 cents = " + waysToRepresentNCents.waysToRepresent(8, 0));
     }
 }
