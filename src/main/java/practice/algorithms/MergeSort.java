@@ -68,6 +68,6 @@ public class MergeSort {
         MergeSort m = new MergeSort();
         Integer[] input = {4, 2, 10, 3, 5, 1, 9, 7};
         Integer[] output = m.sort(input);
-        System.out.println("MERGED = " + output);
+        System.out.println("MERGED = " + output.toString());
     }
 }

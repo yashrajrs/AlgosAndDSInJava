@@ -7,6 +7,10 @@ package practice.dataStructures.trees;
  */
 public class BinarySearchTree {
 
+    public TreeNode getParent() {
+        return parent;
+    }
+
     public TreeNode parent;
 
     /**

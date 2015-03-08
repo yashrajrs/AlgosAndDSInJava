@@ -38,8 +38,6 @@ public class QuickSort {
         if (i < right) {
             sort(input, i, right);
         }
-
-
     }
 
     private void swap(Integer[] input, int i, int j) {
