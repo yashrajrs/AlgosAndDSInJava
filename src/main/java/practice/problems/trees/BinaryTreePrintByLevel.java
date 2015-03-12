@@ -12,6 +12,9 @@ import java.util.ArrayList;
  */
 public class BinaryTreePrintByLevel {
 
+    /**
+     * Use node with data -1 to note a level change
+     */
     public void print(TreeNode input) {
         ArrayList<TreeNode> elements = new ArrayList<TreeNode>();
 
@@ -43,6 +46,34 @@ public class BinaryTreePrintByLevel {
         }
     }
 
+    /**
+     * Use null node to note a level change
+     */
+    public void printByLevel(TreeNode input) {
+        ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
+
+        queue.add(input);
+        queue.add(null);
+
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.remove(0);
+            if (treeNode != null) {
+                System.out.print(treeNode.getData() + "\t");
+                if (treeNode.getLeftChild() != null) {
+                    queue.add(treeNode.getLeftChild());
+                }
+                if (treeNode.getRightChild() != null) {
+                    queue.add(treeNode.getRightChild());
+                }
+            } else if (queue.isEmpty()) {
+                return;
+            } else {
+                queue.add(null);
+                System.out.println();
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         BinaryTreePrintByLevel a = new BinaryTreePrintByLevel();
@@ -57,5 +88,8 @@ public class BinaryTreePrintByLevel {
 
         System.out.println();
         a.print(b.parent);
+
+        System.out.println();
+        a.printByLevel(b.parent);
     }
 }
