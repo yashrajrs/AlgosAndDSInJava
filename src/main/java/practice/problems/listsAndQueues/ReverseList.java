@@ -29,6 +29,21 @@ public class ReverseList {
         return output;
     }
 
+    public void recursiveReverse(Queue input, Queue output) {
+        if (input == null || input.peek() == null) {
+            return;
+        }
+        if (output.first == null) {
+            output.first = new Node(input.dequeue());
+            output.last = output.first;
+        } else {
+            Node newNode = new Node(input.dequeue());
+            newNode.setNext(output.first);
+            output.first = newNode;
+        }
+        recursiveReverse(input, output);
+    }
+
     public static void main(String[] args) {
         Queue queue = new Queue();
         queue.enqueue(1);
@@ -39,5 +54,9 @@ public class ReverseList {
 
         Queue output = r.reverse(queue);
         output.printQueue();
+
+        Queue output1 = new Queue();
+        r.recursiveReverse(queue, output1);
+        output1.printQueue();
     }
 }

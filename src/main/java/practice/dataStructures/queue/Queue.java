@@ -32,6 +32,9 @@ public class Queue {
     }
 
     public Object peek() {
+        if (first==null){
+            return null;
+        }
         return first.getData();
     }
 
