@@ -26,6 +26,9 @@ public class Stack {
     }
 
     public Object peek(){
+        if(top == null){
+            return null;
+        }
         return top.data;
     }
 
