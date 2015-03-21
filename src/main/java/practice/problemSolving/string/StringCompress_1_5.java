@@ -27,6 +27,8 @@ public class StringCompress_1_5 {
                 count = 1;
             }
         }
+        output = String.format("%s%c%d", output, current, count);
+
         if (output.length() < input.length()) {
             System.out.println(output);
         } else {
