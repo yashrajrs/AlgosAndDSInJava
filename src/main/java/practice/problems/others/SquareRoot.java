@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Finds the square root for a given number.

@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Find the number of set bits in a number.

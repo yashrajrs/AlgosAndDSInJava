@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  * Implements radix sort.
- * Time complexity worst case O(kn) and space complexity O(k+ns).
+ * Time complexity worst case O(kn) and space complexity O(k+n).
  *
  * @author Yashraj R. Sontakke
  */

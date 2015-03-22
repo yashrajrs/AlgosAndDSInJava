@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 
 import com.google.common.collect.ImmutableSet;

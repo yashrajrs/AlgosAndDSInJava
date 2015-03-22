@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Convert octal to decimal.

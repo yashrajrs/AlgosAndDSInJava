@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Finds all the prime numbers .

@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Given an integer n, calculate square of a number without using *, / and pow().

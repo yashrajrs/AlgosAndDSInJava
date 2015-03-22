@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Given an NxN matrix of positive and negative integers, write code to find the submatrix

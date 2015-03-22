@@ -1,4 +1,4 @@
-package practice.problems;
+package practice.problems.others;
 
 /**
  * Write a method to count the number of 2s that appear in all the numbers
