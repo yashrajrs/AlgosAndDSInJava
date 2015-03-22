@@ -7,7 +7,7 @@ import practice.dataStructures.trees.TreeNode;
  *
  * @author Yashraj R. Sontakke
  */
-public class MinimalBST_4_4 {
+public class MinimalBST_4_3 {
 
     TreeNode createMinimalBST(final int[] a, final int start, final int end) {
         if (end < start) {
@@ -21,7 +21,7 @@ public class MinimalBST_4_4 {
     }
 
     public static void main(String[] args) {
-        MinimalBST_4_4 minimalBST = new MinimalBST_4_4();
+        MinimalBST_4_3 minimalBST = new MinimalBST_4_3();
         int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         TreeNode n = minimalBST.createMinimalBST(a, 0, a.length - 1);
 

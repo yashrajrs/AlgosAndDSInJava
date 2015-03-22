@@ -11,55 +11,55 @@ import practice.dataStructures.trees.TreeNode;
  */
 public class CommonAncestor_4_7 {
 
-    public static class Result{
+    public static class Result {
         public TreeNode node;
         public boolean isAncestor;
 
-        public Result(TreeNode n, boolean isAnc){
+        public Result(TreeNode n, boolean isAnc) {
             node = n;
             isAncestor = isAnc;
         }
     }
 
-    public Result findCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
-        if (root == null){
-            return new Result(null,false);
+    public Result findCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return new Result(null, false);
         }
-        if (root == p && root ==q){
+        if (root == p && root == q) {
             return new Result(root, true);
         }
 
         Result rx = findCommonAncestor(root.getLeftChild(), p, q);
-        if (rx.isAncestor){
+        if (rx.isAncestor) {
             return rx;
         }
 
         Result ry = findCommonAncestor(root.getRightChild(), p, q);
-        if (ry.isAncestor){
+        if (ry.isAncestor) {
             return ry;
         }
-        if (rx.node!=null && ry.node!=null){
-            return new Result(root,true);
-        }else if (root == p || root==q){
+        if (rx.node != null && ry.node != null) {
+            return new Result(root, true);
+        } else if (root == p || root == q) {
             boolean isAncestor = rx.node != null || ry.node != null ?
                     true : false;
             return new Result(root, isAncestor);
 
-        }else{
-            return new Result(rx.node!=null ?rx.node:ry.node,false );
+        } else {
+            return new Result(rx.node != null ? rx.node : ry.node, false);
         }
     }
 
-    TreeNode commonAncestor(TreeNode root,TreeNode p, TreeNode q){
-        Result result = findCommonAncestor(root, p, q) ;
-        if (result!=null){
+    TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        Result result = findCommonAncestor(root, p, q);
+        if (result.isAncestor) {
             return result.node;
         }
         return null;
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         CommonAncestor_4_7 commonAncestor = new CommonAncestor_4_7();
         TreeNode root = new TreeNode(80);
         TreeNode node1 = new TreeNode(75);
@@ -80,6 +80,9 @@ public class CommonAncestor_4_7 {
         node6.setRightChild(node7);
 
         TreeNode node = commonAncestor.commonAncestor(root, node3, node4);
+        System.out.println(node);
+
+        node = commonAncestor.commonAncestor(root, node4, node5);
         System.out.println(node);
 
     }
