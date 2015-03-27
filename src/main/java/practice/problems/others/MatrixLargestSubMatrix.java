@@ -59,7 +59,7 @@ public class MatrixLargestSubMatrix {
         } else if (col1 == 0) {
             return subMatrix[row2][col2] - subMatrix[row1 - 1][col2];
         } else {
-            return subMatrix[row2][col2] - -subMatrix[row2][col1 - 1] - subMatrix[row1 - 1][col2] + subMatrix[row1 - 1][col1 - 1];
+            return subMatrix[row2][col2] - subMatrix[row2][col1 - 1] - subMatrix[row1 - 1][col2] + subMatrix[row1 - 1][col1 - 1];
         }
     }
 
