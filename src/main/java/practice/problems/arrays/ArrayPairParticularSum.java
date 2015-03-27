@@ -4,6 +4,7 @@ import practice.algorithms.MergeSort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 
 /**
@@ -34,14 +35,14 @@ public class ArrayPairParticularSum {
     // Second approach using hash map
     public void findPair1(Integer[] input, Integer pairValue) {
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        HashMap<Integer,Integer> hashMap = new HashMap<Integer,Integer>();
         for (Integer integer : input) {
-            list.add(integer);
+            hashMap.put(integer,integer);
         }
 
-        for (Integer integer : list) {
+        for (Integer integer : hashMap.keySet()) {
             Integer value = pairValue - integer;
-            if (list.contains(value)) {
+            if (hashMap.get(value)!=null) {
                 System.out.println(String.format("The pair is {%d, %d}", integer, value));
             }
         }
