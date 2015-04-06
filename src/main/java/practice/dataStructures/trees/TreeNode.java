@@ -7,6 +7,10 @@ package practice.dataStructures.trees;
  */
 public class TreeNode {
 
+    public void setData(Integer data) {
+        this.data = data;
+    }
+
     Integer data;
     TreeNode leftChild;
     TreeNode rightChild;

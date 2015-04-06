@@ -10,11 +10,29 @@ import java.util.List;
  */
 public class DoublyLinkedList {
 
-    private Node first, last;
+    private Node first;
+    private Node last;
+    public Node getLast() {
+        return last;
+    }
+
+    public Node getFirst() {
+        return first;
+    }
+
+
 
     public DoublyLinkedList(Long data) {
         first = new Node(data);
         last = first;
+    }
+
+    public void setFirst(Node first) {
+        this.first = first;
+    }
+
+    public void setLast(Node last) {
+        this.last = last;
     }
 
     public void addFirst(Long data) {

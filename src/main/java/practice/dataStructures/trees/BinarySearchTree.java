@@ -19,37 +19,30 @@ public class BinarySearchTree {
      * @param data the data to be added
      */
     public void addData(Integer data) {
+
+
         TreeNode newNode = new TreeNode(data);
+
         if (parent == null) {
             parent = newNode;
-        } else if (parent.getData() > data && parent.getLeftChild() == null) {
-            parent.setLeftChild(newNode);
-            newNode.setParent(parent);
-        } else if (parent.getData() < data && parent.getRightChild() == null) {
-            parent.setRightChild(newNode);
-            newNode.setParent(parent);
-        } else {
-
-
-            TreeNode currentNode = parent;
-
-            while (currentNode != null && ((currentNode.getData() > data && currentNode.getLeftChild() != null) ||
-                    currentNode.getData() < data && currentNode.getRightChild() != null)) {
-                if (currentNode.getData() > data) {
-                    currentNode = currentNode.getLeftChild();
-                } else {
-                    currentNode = currentNode.getRightChild();
-                }
-            }
-
+            return;
+        }
+        TreeNode currentNode = parent;
+        while (currentNode != null && ((currentNode.getData() > data && currentNode.getLeftChild() != null) ||
+                currentNode.getData() < data && currentNode.getRightChild() != null)) {
             if (currentNode.getData() > data) {
-                currentNode.setLeftChild(newNode);
-                newNode.setParent(currentNode);
+                currentNode = currentNode.getLeftChild();
             } else {
-                currentNode.setRightChild(newNode);
-                newNode.setParent(currentNode);
+                currentNode = currentNode.getRightChild();
             }
+        }
 
+        if (currentNode.getData() > data) {
+            currentNode.setLeftChild(newNode);
+            newNode.setParent(currentNode);
+        } else {
+            currentNode.setRightChild(newNode);
+            newNode.setParent(currentNode);
         }
     }
 
@@ -153,7 +146,7 @@ public class BinarySearchTree {
             node1.setRightChild(rightChild);
             rightChild.setParent(node1);
         } else if (leftChild != null && rightChild == null) {
-            TreeNode node1 = node.getLeftChild();
+            TreeNode node1 = node.getParent();
             node1.setLeftChild(leftChild);
             leftChild.setParent(node1);
         } else if (leftChild == null && rightChild == null) {
