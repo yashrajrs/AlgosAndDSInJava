@@ -30,5 +30,6 @@ public class HexadecimalToDecimal {
         hexadecimalToDecimal.convert("A");
         hexadecimalToDecimal.convert("14");
         hexadecimalToDecimal.convert("1f");
+        hexadecimalToDecimal.convert("2f");
     }
 }

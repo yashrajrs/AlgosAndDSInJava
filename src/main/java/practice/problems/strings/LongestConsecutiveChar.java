@@ -69,7 +69,7 @@ public class LongestConsecutiveChar {
         }
     }
 
-    public static void t(String[] args) {
+    public static void main(String[] args) {
         LongestConsecutiveChar longestConsecutiveChar = new LongestConsecutiveChar();
         longestConsecutiveChar.getLongestConsecutiveChar("this is a test sentence");
         longestConsecutiveChar.getLongestConsecutiveChar("thiis iss a teest seentennce");

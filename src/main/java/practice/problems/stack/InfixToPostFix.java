@@ -17,13 +17,13 @@ public class InfixToPostFix {
         while (i < input.length()) {
             Character current = input.charAt(i);
             if (current != '+' && current != '-' && current != '*' && current != '/') {
-                output = output.concat(Character.toString(current));
+                output = output + current;
             } else if (stack.isEmpty()) {
                 stack.push(current);
             } else {
                 while (!stack.isEmpty() && getValue(current) <= getValue((Character) stack.peek())) {
                     Character topElement = (Character) stack.pop();
-                    output = output.concat(Character.toString(topElement));
+                    output = output + topElement;
                 }
                 stack.push(current);
             }

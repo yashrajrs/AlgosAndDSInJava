@@ -9,6 +9,7 @@ public class PrimeNumbers {
 
     /**
      * First approach O(nloglogn)
+     * Sieve of Eratosthenes method
      */
     public void printPrimeNumbers(int n) {
         int upperBound = (int) Math.sqrt(n);

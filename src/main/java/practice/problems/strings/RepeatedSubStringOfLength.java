@@ -3,7 +3,8 @@ package practice.problems.strings;
 import java.util.TreeSet;
 
 /**
- * Find all the repeating sub-string sequence of specified length in a large string sequence. The sequences returned i.e. the output must be sorted alphabetically.
+ * Find all the repeating sub-string sequence of specified length in a large string sequence.
+ * The sequences returned i.e. the output must be sorted alphabetically.
  * <p/>
  * For e.g.
  * <p/>
