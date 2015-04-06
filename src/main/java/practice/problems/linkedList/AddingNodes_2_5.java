@@ -40,13 +40,29 @@ public class AddingNodes_2_5 {
             return list1;
         }
 
-        Integer result = Integer.parseInt(first) + Integer.parseInt(second);
+        Long result = Long.parseLong(first) + Long.parseLong(second);
         String sum = result.toString();
 
-        LinkedList output = new LinkedList(Long.parseLong(Character.toString(sum.charAt(sum.length()-1))));
-        for (int i = sum.length()-2;i>=0;i--){
-            output.appendToTail(Long.parseLong(Character.toString(sum.charAt(i))));
+//        LinkedList output = new LinkedList(Long.parseLong(Character.toString(sum.charAt(sum.length()-1))));
+//        for (int i = sum.length()-2;i>=0;i--){
+//            output.appendToTail(Long.parseLong(Character.toString(sum.charAt(i))));
+//        }
+
+
+        LinkedList output = null;
+        while (result > 0){
+            if (output == null){
+                output = new LinkedList(result %10);
+            }else{
+                output.appendToTail(result%10);
+            }
+            result = result/10;
         }
+//
+//        for (int i = sum.length()-2;i>=0;i--){
+//            output.appendToTail(Long.parseLong(Character.toString(sum.charAt(i))));
+//        }
+
         return output;
     }
 

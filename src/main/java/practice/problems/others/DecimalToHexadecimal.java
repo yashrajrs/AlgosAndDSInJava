@@ -29,5 +29,6 @@ public class DecimalToHexadecimal {
         decimalToHexadecimal.convert(10);
         decimalToHexadecimal.convert(20);
         decimalToHexadecimal.convert(31);
+        decimalToHexadecimal.convert(47);
     }
 }

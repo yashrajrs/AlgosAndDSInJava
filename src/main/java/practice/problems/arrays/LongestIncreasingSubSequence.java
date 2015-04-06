@@ -46,6 +46,26 @@ public class LongestIncreasingSubSequence {
         }
     }
 
+
+
+    public void getSubSequences(ArrayList<Integer> input, ArrayList<Integer> currentSubSequence, Set<ArrayList<Integer>> subSequences){
+        if (input.isEmpty()){
+            subSequences.add(currentSubSequence);
+            return;
+        }
+
+        for (int i=0;i<input.size();i++){
+            ArrayList<Integer> newInput = new ArrayList<Integer>(input.subList(i+1,input.size()));
+            if (currentSubSequence.isEmpty() || currentSubSequence.get(currentSubSequence.size()-1) < input.get(i)){
+                ArrayList<Integer> newCurrentSubSequence = new ArrayList<Integer>(currentSubSequence);
+                newCurrentSubSequence.add(input.get(i));
+                getSubSequences(newInput,newCurrentSubSequence,subSequences);
+            }else{
+                getSubSequences(newInput,currentSubSequence,subSequences);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         LongestIncreasingSubSequence longestIncreasingSubsequence = new LongestIncreasingSubSequence();
 //        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15));
@@ -60,5 +80,19 @@ public class LongestIncreasingSubSequence {
             }
         }
         System.out.println(String.format("Largest increasing subSequence is %s of size %d", largestSequence.toString(), largestSequence.size()));
+
+
+        Set<ArrayList<Integer>> subSeq = Sets.newHashSet();
+        longestIncreasingSubsequence.getSubSequences(input, new ArrayList<Integer>(), subSeq);
+        largestSequence = new ArrayList<Integer>();
+
+        for (ArrayList<Integer> list : subSeq){
+            if (largestSequence.size() < list.size()){
+                largestSequence = list;
+            }
+        }
+
+        System.out.println(String.format("Largest increasing subSequence is %s of size %d", largestSequence.toString(), largestSequence.size()));
+
     }
 }

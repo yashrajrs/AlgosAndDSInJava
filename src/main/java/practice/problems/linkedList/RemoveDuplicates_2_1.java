@@ -17,16 +17,18 @@ public class RemoveDuplicates_2_1 {
     /**
      * First approach O(n).
      */
-    public void removeDuplicates(LinkedList list) {
-        List<Long> nodeData = new ArrayList<Long>();
-        Node node = list.getFirst();
-        while (node != null) {
-            if (nodeData.contains(node.getData())) {
-                list.deleteNode((Long) node.getData());
-            } else {
-                nodeData.add((Long) node.getData());
+    public void removeDuplicates1(LinkedList list) {
+       List<Long> nodeData = new ArrayList<Long>();
+        Node first = list.getFirst();
+        nodeData.add((Long)first.getData());
+        while (first!=null){
+            Node second = first.getNext();
+            if (second != null && nodeData.contains(second.getData())){
+                first.setNext(second.getNext());
+            }else{
+                nodeData.add((Long) second.getData());
             }
-            node = node.getNext();
+            first = first.getNext();
         }
     }
 
@@ -65,7 +67,7 @@ public class RemoveDuplicates_2_1 {
 
         list.printData();
 
-        r.deleteDuplicates(list);
+        r.removeDuplicates1(list);
         list.printData();
     }
 }

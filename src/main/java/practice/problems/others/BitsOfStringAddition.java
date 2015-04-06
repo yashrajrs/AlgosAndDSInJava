@@ -60,6 +60,36 @@ public class BitsOfStringAddition {
         }
     }
 
+    public String addBinary(String a, String b) {
+        if (a == null || a.length() == 0) {
+            return b;
+        }
+        if (b == null || b.length() == 0) {
+            return a;
+        }
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+        String output = "";
+        while (i >= 0 || j >= 0) {
+            if (i >= 0) {
+                carry += a.charAt(i) == '1' ? 1 : 0;
+                i--;
+            }
+            if (j >= 0) {
+                carry += b.charAt(j) == '1' ? 1 : 0;
+                j--;
+            }
+
+            output = carry % 2 + output;
+            carry /= 2;
+        }
+        if (carry > 0) {
+            output = carry + output;
+        }
+        return output;
+    }
+
     public static void main(String[] args) {
         BitsOfStringAddition bitsOfStringAddition = new BitsOfStringAddition();
         bitsOfStringAddition.add("100", "010");
@@ -67,6 +97,14 @@ public class BitsOfStringAddition {
         bitsOfStringAddition.add("100", "011");
         bitsOfStringAddition.add("101", "011");
         bitsOfStringAddition.add("111", "111");
+
+        System.out.println();
+
+        System.out.println(bitsOfStringAddition.addBinary("100", "010"));
+        System.out.println(bitsOfStringAddition.addBinary("100", "100"));
+        System.out.println(bitsOfStringAddition.addBinary("100", "011"));
+        System.out.println(bitsOfStringAddition.addBinary("101", "011"));
+        System.out.println(bitsOfStringAddition.addBinary("111", "111"));
     }
 
     public class Number {
