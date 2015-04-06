@@ -10,12 +10,11 @@ import practice.dataStructures.Node;
 public class StackWithSize {
     private Node top;
     private int size = 0;
+    private StackWithSize next;
 
     public void setNext(StackWithSize next) {
         this.next = next;
     }
-
-    private StackWithSize next;
 
     public void push(Integer data){
         if (top == null){
@@ -46,6 +45,7 @@ public class StackWithSize {
             Integer temp = (Integer) top.getData();
             top = top.getNext();
             size--;
+            return temp;
         }
         return null;
     }

@@ -1,6 +1,7 @@
 package practice.problemSolving.recursion;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implement an algorithm to print all valid (i.e., properly opened and closed) combinations
@@ -36,7 +37,10 @@ public class Paranthesis_9_6 {
         return list;
     }
 
-    public static void main(String[] args){
+
+
+
+    public static void main(String[] args) {
         Paranthesis_9_6 permutationsString = new Paranthesis_9_6();
         System.out.println(permutationsString.getParens(3).toString());
     }

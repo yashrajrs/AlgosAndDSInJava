@@ -7,7 +7,7 @@ package practice.problemSolving.string;
  *
  * @author Yashraj R. Sontakke
  */
-public class StringRotationCheck {
+public class StringRotationCheck_1_8 {
 
     public boolean isRotation(String s1, String s2) {
         if (s1.length() > 0 && s1.length() == s2.length()) {
@@ -23,7 +23,7 @@ public class StringRotationCheck {
 
 
     public static void main(String[] args) {
-        StringRotationCheck stringRotationCheck = new StringRotationCheck();
+        StringRotationCheck_1_8 stringRotationCheck = new StringRotationCheck_1_8();
         System.out.println(stringRotationCheck.isRotation("erbottLewat", "waterbottLe"));
         System.out.println(stringRotationCheck.isRotation("erbottLewat", "waterbottL"));
     }
