@@ -51,6 +51,7 @@ public class StringReplace_1_4 {
             } else {
                 input[j] = input[i];
                 j--;
+                characterEncountered = true;
             }
         }
         System.out.println(new String(input));
