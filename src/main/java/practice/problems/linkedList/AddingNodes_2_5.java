@@ -66,6 +66,48 @@ public class AddingNodes_2_5 {
         return output;
     }
 
+
+    public LinkedList addList1(LinkedList list1, LinkedList list2){
+        LinkedList output = null;
+        Node current = null;
+        Node n1 = list1.getFirst();
+        Node n2 = list2.getFirst();
+        Long carry = 0L;
+        while(n1!= null || n2 != null){
+
+            if(n1 != null){
+                carry += (Long) n1.data;
+                n1 = n1.getNext();
+            }
+            if(n2 != null){
+                carry += (Long) n2.getData();
+                n2 = n2.getNext();
+            }
+
+            if(output == null){
+                output = new LinkedList(carry %10);
+                current = output.getFirst();
+            }else{
+                current.setNext(new Node(carry % 10));
+                current = current.getNext();
+            }
+            carry /= 10;
+        }
+
+        while(carry > 0){
+            if(output == null){
+                output = new LinkedList(carry %10);
+                current = output.getFirst();
+            }else{
+                current.setNext(new Node(carry % 10));
+                current = current.getNext();
+            }
+            carry /= 10;
+        }
+        return output;
+
+    }
+
     public static void main(String[] args){
         LinkedList list1 = new LinkedList(7L);
         list1.appendToTail(1L);
@@ -78,5 +120,8 @@ public class AddingNodes_2_5 {
         AddingNodes_2_5 addingNodes = new AddingNodes_2_5();
         LinkedList list = addingNodes.addList(list1, list2);
         list.printData();
+
+        LinkedList list12 = addingNodes.addList1(list1, list2);
+        list12.printData();
     }
 }
