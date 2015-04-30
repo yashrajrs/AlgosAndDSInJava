@@ -48,12 +48,14 @@ public class CircularLinkedList {
                 end = null;
                 return data;
             }
+            Long d = (Long)end.getData();
             Node n = start;
             while (n.getNext() != end) {
                 n = n.getNext();
             }
             n.setNext(start);
             end = n;
+            return d;
         }
         return null;
     }

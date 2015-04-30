@@ -25,7 +25,7 @@ public class RemoveDuplicates_2_1 {
             Node second = first.getNext();
             if (second != null && nodeData.contains(second.getData())){
                 first.setNext(second.getNext());
-            }else{
+            }else if(second != null){
                 nodeData.add((Long) second.getData());
             }
             first = first.getNext();
@@ -63,7 +63,7 @@ public class RemoveDuplicates_2_1 {
         list.appendToTail(30L);
         list.appendToTail(30L);
         list.appendToTail(40L);
-        list.appendToTail(20L);
+//        list.appendToTail(20L);
 
         list.printData();
 
