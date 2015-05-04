@@ -2,10 +2,7 @@ package practice.problems.arrays;
 
 import com.google.common.collect.Sets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Where the number parameter is a string that contains a number (e.g. “4205123”),
@@ -63,6 +60,33 @@ public class GetLowestNumber {
         System.out.println(lowestNumber);
     }
 
+    static Integer minNumber =   Integer.MAX_VALUE;
+
+    private void getLowest1(List<Character> input, int n){
+        getLowest1(input, null, n);
+        System.out.println(minNumber);
+    }
+
+    private void getLowest1(List<Character> input, Integer number, int n){
+        if (number != null && number < minNumber && number > Math.pow(10,n-1)){
+            minNumber = number;
+        }
+
+        if (input.size() == n || input.isEmpty()){
+            return;
+        }
+
+        for (int i=0;i<input.size();i++){
+            List<Character> newInput = input.subList(i+1, input.size());
+            Integer newNumber =input.get(i)-'0';
+            if (number != null){
+                newNumber+= number*10;
+            }
+            getLowest1(newInput, number,n);
+            getLowest1(newInput, newNumber,n);
+        }
+    }
+
     public static void main(String[] args) {
         GetLowestNumber GetLowestNumber = new GetLowestNumber();
         ArrayList<Character> input = new ArrayList<Character>(Arrays.asList('4', '2', '0', '5', '1', '2', '3'));
@@ -71,5 +95,8 @@ public class GetLowestNumber {
         GetLowestNumber.lowestNumbers = new HashSet<String>();
         ArrayList<Character> input1 = new ArrayList<Character>(Arrays.asList('2', '1', '6', '5', '0', '4'));
         GetLowestNumber.getLowest(input1, 3);
+
+        List<Character> list = Arrays.asList('2', '1', '6', '5', '0', '4');
+        GetLowestNumber.getLowest1(list,3);
     }
 }
