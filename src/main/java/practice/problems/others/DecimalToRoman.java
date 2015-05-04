@@ -49,5 +49,6 @@ public class DecimalToRoman {
         DecimalToRoman decimalToRoman = new DecimalToRoman();
         decimalToRoman.getNum(863);
         System.out.println(decimalToRoman.intToRoman(863));
+        System.out.println(decimalToRoman.intToRoman(3500));
     }
 }
