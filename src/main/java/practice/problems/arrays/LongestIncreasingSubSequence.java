@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -94,5 +95,32 @@ public class LongestIncreasingSubSequence {
 
         System.out.println(String.format("Largest increasing subSequence is %s of size %d", largestSequence.toString(), largestSequence.size()));
 
+
+        List<Integer> list = Arrays.asList(10,22,9,33,21,50,41,60,80);
+        Integer[] array = new Integer[list.size()];
+        longestIncreasingSubsequence.longestsub(input, 0, array,0);
+    }
+
+    private static int maxLength = 0;
+
+    private void longestsub(List<Integer> input, int pos, Integer[] array, int arrayPos){
+//        System.out.println(Arrays.asList(array).toString());
+        if (pos== input.size()){
+            if (maxLength < arrayPos){
+                System.out.println(Arrays.asList(array).subList(0, arrayPos));
+                maxLength = arrayPos;
+            }
+            return;
+        }
+
+        for (int i=pos;i<input.size();i++){
+            if (arrayPos == 0 || array[arrayPos-1] < input.get(pos)){
+                array[arrayPos] = input.get(i);
+
+                longestsub(input, i+1, array, arrayPos+1);
+                array[arrayPos] = null;
+            }
+        }
+//        System.out.println(Arrays.asList(array).subList(0, arrayPos));
     }
 }
