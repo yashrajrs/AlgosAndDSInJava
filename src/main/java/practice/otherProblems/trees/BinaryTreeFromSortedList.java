@@ -1,4 +1,7 @@
-package practice.otherProblems;
+package practice.otherProblems.trees;
+
+import practice.otherProblems.ListNode;
+import practice.otherProblems.TreeNode;
 
 /**
  * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.

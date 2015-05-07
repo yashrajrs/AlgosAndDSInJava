@@ -1,4 +1,6 @@
-package practice.otherProblems;
+package practice.otherProblems.trees;
+
+import practice.otherProblems.TreeNode;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,6 @@
-package practice.otherProblems;
+package practice.otherProblems.trees;
+
+import practice.otherProblems.TreeNode;
 
 /**
  * Given an array where elements are sorted in ascending order, convert it to a height balanced BST.

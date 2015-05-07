@@ -1,4 +1,6 @@
-package practice.otherProblems;
+package practice.otherProblems.trees;
+
+import practice.otherProblems.TreeNode;
 
 /**
  * Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
