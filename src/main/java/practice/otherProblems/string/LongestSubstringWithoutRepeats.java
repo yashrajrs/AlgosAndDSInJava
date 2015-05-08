@@ -1,4 +1,4 @@
-package practice.otherProblems;
+package practice.otherProblems.string;
 
 import java.util.HashMap;
 

@@ -1,9 +1,6 @@
-package practice.otherProblems;
+package practice.otherProblems.linkedlist;
 
-import practice.dataStructures.linkedList.Node;
-
-import java.util.LinkedList;
-import java.util.Stack;
+import practice.otherProblems.ListNode;
 
 /**
  * You are given two linked lists representing two non-negative numbers.

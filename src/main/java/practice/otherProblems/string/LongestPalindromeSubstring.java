@@ -1,4 +1,4 @@
-package practice.otherProblems;
+package practice.otherProblems.string;
 
 /**
  * Given a string S, find the longest palindromic substring in S.

@@ -1,4 +1,6 @@
-package practice.otherProblems;
+package practice.otherProblems.linkedlist;
+
+import practice.otherProblems.ListNode;
 
 /**
  * Merge two sorted linked lists and return it as a new list.

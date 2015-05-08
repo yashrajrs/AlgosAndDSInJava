@@ -1,4 +1,4 @@
-package practice.otherProblems;
+package practice.otherProblems.array;
 
 import java.util.Arrays;
 

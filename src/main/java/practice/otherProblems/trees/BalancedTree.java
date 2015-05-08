@@ -1,6 +1,6 @@
-package practice.otherProblems;
+package practice.otherProblems.trees;
 
-import practice.dataStructures.trees.BinarySearchTree;
+import practice.otherProblems.TreeNode;
 
 /**
  * Given a binary tree, determine if it is height-balanced.

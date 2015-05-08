@@ -1,4 +1,4 @@
-package practice.otherProblems;
+package practice.otherProblems.array;
 
 /**
  * Write a function to find the longest common prefix string amongst an array of strings.

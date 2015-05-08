@@ -1,4 +1,4 @@
-package practice.otherProblems;
+package practice.otherProblems.array;
 
 /**
  * You are a professional robber planning to rob houses along a street.
