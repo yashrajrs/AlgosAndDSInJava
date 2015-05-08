@@ -22,15 +22,22 @@ package practice.problems.others;
  */
 public class Isomorphic {
 
-    public boolean isIsomorphic(String input1, String input2){
-        if (input1.length() != input2.length()){
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length() != t.length()){
             return false;
         }
         char[] array = new char[255];
-        for (int i=0;i<input1.length();i++){
-            if (array[input1.charAt(i)] == 0){
-                array[input1.charAt(i)] = input2.charAt(i);
-            }else if (array[input1.charAt(i)]!=input2.charAt(i)){
+        char[] array2 = new char[255];
+        for(int i=0; i< s.length(); i++){
+            if(array[s.charAt(i)] == 0){
+                array[s.charAt(i)] = t.charAt(i);
+            }else if(array[s.charAt(i)] != t.charAt(i)){
+                return false;
+            }
+
+            if(array2[t.charAt(i)] == 0){
+                array2[t.charAt(i)] = s.charAt(i);
+            }else if (array2[t.charAt(i)] != s.charAt(i)){
                 return false;
             }
         }
@@ -43,5 +50,6 @@ public class Isomorphic {
         System.out.println(i.isIsomorphic("turtle","tletur"));
         System.out.println(i.isIsomorphic("ab","ca"));
         System.out.println(i.isIsomorphic("foo","bar"));
+        System.out.println(i.isIsomorphic("ab","aa"));
     }
 }
