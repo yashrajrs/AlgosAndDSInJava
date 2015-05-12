@@ -37,6 +37,33 @@ public class ListsPerDepth_4_4 {
         return result;
     }
 
+
+    public ArrayList<ArrayList<TreeNode>> getLists1(TreeNode root){
+        ArrayList<ArrayList<TreeNode>> result = new ArrayList<ArrayList<TreeNode>>();
+        if (root==null){
+            return result;
+        }
+
+        ArrayList<TreeNode> current = new ArrayList<TreeNode>();
+        current.add(root);
+        while (current.size()>0){
+            ArrayList<TreeNode> list = new ArrayList<TreeNode>();
+            int size = current.size();
+            for(int i=0;i<size;i++){
+                TreeNode node = current.remove(0);
+                if (node.getLeftChild() != null){
+                    current.add(node.getLeftChild());
+                }
+                if (node.getRightChild() != null){
+                    current.add(node.getRightChild());
+                }
+                list.add(node);
+            }
+            result.add(list);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         BinarySearchTree b = new BinarySearchTree();
         b.addData(80);
@@ -49,6 +76,9 @@ public class ListsPerDepth_4_4 {
         ListsPerDepth_4_4 listsPerDepth = new ListsPerDepth_4_4();
         ArrayList<ArrayList<TreeNode>> lists = listsPerDepth.getLists(b.parent);
         System.out.println(lists.toString());
+
+        ArrayList<ArrayList<TreeNode>> lists1 = listsPerDepth.getLists1(b.parent);
+        System.out.println(lists1.toString());
 
     }
 }
