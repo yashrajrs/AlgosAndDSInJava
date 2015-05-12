@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -44,6 +45,28 @@ public class AllSubsets_9_4 {
         getSS(newInput, newCurrentInput, subsets);
     }
 
+    public List<List<Integer>> subsets(int[] input){
+        if (input == null){
+            return null;
+        }
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        Arrays.sort(input);
+        for(int num : input){
+            List<List<Integer>> temp = new ArrayList<List<Integer>>();
+            for (List<Integer> list: result){
+                temp.add(new ArrayList<Integer>(list));
+            }
+            for (List<Integer> list :temp){
+                list.add(num);
+            }
+            List<Integer> list = new ArrayList<Integer>();
+            list.add(num);
+            temp.add(list);
+            result.addAll(temp);
+        }
+        result.add(new ArrayList<Integer>());
+        return result;
+    }
 
 
     public static void main(String[] args) {
@@ -56,5 +79,8 @@ public class AllSubsets_9_4 {
         Set<ArrayList<Integer>> subSets = Sets.newHashSet();
         allSubsets.getSS(input, new ArrayList<Integer>(),subSets);
         System.out.println(subSets.toString());
+
+        int[] input1 = {1,2,3};
+        System.out.println(allSubsets.subsets(input1));
     }
 }
