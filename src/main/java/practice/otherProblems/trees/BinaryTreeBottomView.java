@@ -34,7 +34,7 @@ public class BinaryTreeBottomView {
             return;
         }
         printBottomView(node.left, list);
-        if (node.left == null && node.right == null){
+        if (node.left == null || node.right == null){
             list.add(node.val);
         }
         printBottomView(node.right, list);
