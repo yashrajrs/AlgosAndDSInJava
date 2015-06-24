@@ -60,5 +60,8 @@ public class UniquePaths2 {
 
         int[][] input = {{0,0,0},{0,1,0},{0,0,0}};
         System.out.println(u.uniquePathsWithObstacles(input));
+
+        int[][] input1 = {{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+        System.out.println(u.uniquePathsWithObstacles(input1));
     }
 }
