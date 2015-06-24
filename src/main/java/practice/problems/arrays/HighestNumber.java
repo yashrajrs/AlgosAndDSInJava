@@ -33,11 +33,35 @@ public class HighestNumber {
         array[j] = temp;
     }
 
+
+    public Integer nextHighest(char[] array, int index, int input, int currentHighest){
+        if (index == array.length){
+            Integer number = Integer.parseInt(new String(array));
+            if (number > input && number < currentHighest){
+                return number;
+            }else {
+                return currentHighest;
+            }
+        }
+        int highest = currentHighest;
+        for (int i=0;i<array.length;i++){
+            swap(array, index, i);
+            int number = nextHighest(array, index+1, input, currentHighest);
+            if (number < currentHighest){
+                highest = number;
+            }
+            swap(array, index, i);
+        }
+        return highest;
+    }
+
     public static void main(String[] args){
         HighestNumber n = new HighestNumber();
         char[] array = {'2','1','8','7','6','5'};
 
         System.out.println(n.highest(array, 0));
+
+        System.out.println(n.nextHighest(array, 0, 218765, Integer.MAX_VALUE));
     }
 
 }

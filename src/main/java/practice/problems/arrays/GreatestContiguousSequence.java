@@ -77,10 +77,24 @@ public class GreatestContiguousSequence {
 
     }
 
+    public void getSequences2(ArrayList<Integer> input) {
+        Integer result = Integer.MIN_VALUE;
+        for (int i = 0; i < input.size(); i++) {
+            for (int j = i + 1; j < input.size(); j++) {
+                int value = getValue(input.subList(i, j));
+                if (value > result){
+                    result = value;
+                }
+            }
+        }
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
         GreatestContiguousSequence greatestContiguousSequence = new GreatestContiguousSequence();
         ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(2, -8, 3, -2, 4, -10));
         greatestContiguousSequence.getLongestContiguousSequence(input);
         greatestContiguousSequence.getSum(input);
+        greatestContiguousSequence.getSequences2(input);
     }
 }
