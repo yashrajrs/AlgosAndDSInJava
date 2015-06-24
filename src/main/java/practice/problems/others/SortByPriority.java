@@ -68,12 +68,13 @@ public class SortByPriority {
                 i++;
                 j--;
             }
-            if (left < j) {
-                quickSort(input, left, j);
-            }
-            if (i < right) {
-                quickSort(input, i, right);
-            }
+
+        }
+        if (left < j) {
+            quickSort(input, left, j);
+        }
+        if (i < right) {
+            quickSort(input, i, right);
         }
 
     }
@@ -81,7 +82,7 @@ public class SortByPriority {
     public static void main(String[] args) {
         SortByPriority sortByPriority = new SortByPriority();
         String[] input = {"ABCD", "AB", "A", "DC", "AVFS", "V", "GB", "VFFVF"};
-        sortByPriority.sort(input);
+//        sortByPriority.sort(input);
 
         System.out.println();
 

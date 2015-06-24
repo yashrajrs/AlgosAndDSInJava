@@ -5,6 +5,7 @@ import practice.dataStructures.linkedList.LinkedList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Implement a function to check if a linked list is a palindrome
@@ -30,6 +31,26 @@ public class Palindrome_2_7 {
         System.out.println("PALINDROME");
     }
 
+    public boolean isPalindrome1(Node input){
+        Stack<Object> stack = new Stack<Object>();
+        Node n = input;
+        while (n!=null){
+            stack.push(n.getData());
+            n = n.getNext();
+        }
+        n = input;
+        while (n!=null){
+            if (n.getData() != stack.pop()){
+                return false;
+            }
+            n = n.getNext();
+        }
+        if (!stack.isEmpty()){
+             return false;
+        }
+        return true;
+    }
+
 
     public static void main(final String[] args) {
         Palindrome_2_7 r = new Palindrome_2_7();
@@ -40,6 +61,8 @@ public class Palindrome_2_7 {
         list.appendToTail(1L);
 
         r.isPalindrome(list.getFirst());
+
+        System.out.println(r.isPalindrome1(list.getFirst()));
 
     }
 }

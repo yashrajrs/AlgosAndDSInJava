@@ -48,6 +48,25 @@ public class LetterCombinationsOfPhoneNumber {
         }
     }
 
+
+
+    public void lc(String digits, int i, char[] array, ArrayList<String> result){
+        if (i== array.length){
+            result.add(new String(array).trim());
+            return;
+        }
+        if (digits.charAt(i) == '0' || digits.charAt(i) == '1'){
+            array[i] =' ';
+            lc(digits, i+1, array, result);
+        }
+        String values = letters[digits.charAt(i)-'1'];
+        for (char c : values.toCharArray()){
+            array[i] = c;
+            lc(digits, i+1, array, result);
+        }
+
+    }
+
     public static void main(String[] args){
         LetterCombinationsOfPhoneNumber l = new LetterCombinationsOfPhoneNumber();
         System.out.println(l.letterCombinations("23"));
