@@ -4,6 +4,8 @@ import practice.dataStructures.trees.BinarySearchTree;
 import practice.dataStructures.trees.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Print binary tree such that nodes at a particular level are on the same level
@@ -74,6 +76,32 @@ public class BinaryTreePrintByLevel {
         }
     }
 
+    /**
+     * Use null node to note a level change
+     */
+    public void printByLevel2(TreeNode input) {
+        if (input == null){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(input);
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            for (int i=0;i<size;i++){
+                TreeNode node = queue.remove();
+                if (node.getLeftChild() != null){
+                    queue.add(node.getLeftChild());
+                }
+                if(node.getRightChild() != null){
+                    queue.add(node.getRightChild());
+                }
+                System.out.print(node.getData() + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
 
     public static void main(String[] args) {
         BinaryTreePrintByLevel a = new BinaryTreePrintByLevel();
@@ -91,5 +119,8 @@ public class BinaryTreePrintByLevel {
 
         System.out.println();
         a.printByLevel(b.parent);
+
+        System.out.println();
+        a.printByLevel2(b.parent);
     }
 }

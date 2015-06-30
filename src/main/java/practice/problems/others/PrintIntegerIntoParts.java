@@ -31,12 +31,35 @@ public class PrintIntegerIntoParts {
         }
     }
 
+
+    private void get(int a, int b){
+       b = b+a;
+       a = b-a;
+       b = b -a;
+       b = b -a;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+
+
+    public void printInParts(int input){
+        if (input==0){
+            System.out.println(input);
+            return;
+        }
+        Stack<Integer> stack = new Stack<Integer>();
+        while (input > 0){
+            stack.push(input%10);
+            input/=10;
+        }
+        while (!stack.isEmpty()){
+            System.out.println(stack.pop());
+        }
+    }
+
     public static  void main(String[] args){
         PrintIntegerIntoParts parts = new PrintIntegerIntoParts();
-        parts.printIntegers(123);
-        System.out.println();
-        parts.printIntegers(0);
-        System.out.println();
-        parts.printIntegers(5678);
+        parts.get(80,50);
     }
 }

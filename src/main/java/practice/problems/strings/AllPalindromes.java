@@ -2,10 +2,7 @@ package practice.problems.strings;
 
 import com.google.common.collect.Sets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Find all palindromes in a given string. Single letters are also considered as palindromes.
@@ -67,6 +64,27 @@ public class AllPalindromes {
         System.out.println(contiguousPalindromes.toString());
     }
 
+    public void getPalindromes(List<Character> input, int index, ArrayList<Character> current, Set<String> result){
+        if (index == input.size()){
+            if (isPalindrome(current)){
+                result.add(current.toString());
+            }
+            return;
+        }
+        for(int i= index;i<input.size();i++){
+            current.add(input.get(i));
+            getPalindromes(input, index+1, current, result);
+            current.remove(current.size()-1);
+        }
+    }
+
+    public Set<String> getPalindromes2(List<Character> input){
+        ArrayList<Character> current = new ArrayList<Character>();
+        Set<String> result = new HashSet<String>();
+        getPalindromes(input, 0, current, result);
+        return result;
+
+    }
 
     public static void main(String[] args) {
         AllPalindromes allPalindromes = new AllPalindromes();
@@ -77,6 +95,10 @@ public class AllPalindromes {
 
         System.out.println();
         allPalindromes.getContiguousPalindromes(input);
+
+        System.out.println();
+        System.out.println(allPalindromes.getPalindromes2(input));
+
 
     }
 }

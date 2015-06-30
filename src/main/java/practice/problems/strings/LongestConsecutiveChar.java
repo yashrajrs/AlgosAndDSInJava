@@ -75,5 +75,7 @@ public class LongestConsecutiveChar {
         longestConsecutiveChar.getLongestConsecutiveChar("thiis iss a teest seentennce");
         longestConsecutiveChar.getLongestConsecutiveChar("thiiis iss aa teeest seentennnce");
         longestConsecutiveChar.getLongestConsecutiveChar("thiiiis iss a teeest seeentennncccce");
+
+        longestConsecutiveChar.getLongestConsecutiveChar("this s");
     }
 }
