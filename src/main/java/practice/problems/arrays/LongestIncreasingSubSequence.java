@@ -2,10 +2,7 @@ package practice.problems.arrays;
 
 import com.google.common.collect.Sets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Finds the length of the largest increasing sub sequence of the input list provided
@@ -67,6 +64,43 @@ public class LongestIncreasingSubSequence {
         }
     }
 
+
+
+    public void findSub1(ArrayList<Integer> input){
+        ArrayList<Integer> current = new ArrayList<Integer>();
+        HashMap<Integer, Set<ArrayList<Integer>>> result = new HashMap<Integer, Set<ArrayList<Integer>>>();
+        findSub1(input,0, 0, current, result);
+
+        int max = Collections.max(result.keySet());
+        System.out.println(result.get(max));
+    }
+
+
+    public void findSub1(ArrayList<Integer> input, int index, int lastVal, ArrayList<Integer> current,
+                         HashMap<Integer, Set<ArrayList<Integer>>> result){
+        if (index == input.size()){
+            if (result.containsKey(current.size())){
+                    Set<ArrayList<Integer>> list = result.get(current.size());
+                    list.add(new ArrayList<Integer>(current));
+                    result.put(current.size(), list);
+            }else{
+                Set<ArrayList<Integer>> list = new HashSet<ArrayList<Integer>>();
+                list.add(new ArrayList<Integer>(current));
+                result.put(current.size(), list);
+            }
+            return;
+        }
+        for (int i=index;i<input.size();i++){
+            if (input.get(i) > lastVal){
+                current.add(input.get(i));
+                findSub1(input, i+1, input.get(i), current, result);
+                current.remove(current.size()-1);
+            }else{
+                findSub1(input, i+1, lastVal, current, result);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         LongestIncreasingSubSequence longestIncreasingSubsequence = new LongestIncreasingSubSequence();
 //        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15));
@@ -82,6 +116,10 @@ public class LongestIncreasingSubSequence {
         }
         System.out.println(String.format("Largest increasing subSequence is %s of size %d", largestSequence.toString(), largestSequence.size()));
 
+
+        System.out.println();
+
+        longestIncreasingSubsequence.findSub1(new ArrayList<Integer>(input));
 
         Set<ArrayList<Integer>> subSeq = Sets.newHashSet();
         longestIncreasingSubsequence.getSubSequences(input, new ArrayList<Integer>(), subSeq);
