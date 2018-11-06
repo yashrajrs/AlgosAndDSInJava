@@ -1,5 +1,8 @@
 package practice.otherProblems;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Given a binary tree
 
@@ -48,6 +51,27 @@ public class PopulateRightPointersOfEachNode {
         }
         connect(root.left);
         connect(root.right);
+    }
+
+    public void connect1(TreeLinkNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeLinkNode> queue = new LinkedList<TreeLinkNode>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            TreeLinkNode node = queue.remove();
+            if (node.left != null) {
+                node.left.next = node.right;
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                if(node.next != null) {
+                    node.right.next = node.next.left;
+                }
+                queue.add(node.right);
+            }
+        }
     }
 
     public static void main(String[] args){

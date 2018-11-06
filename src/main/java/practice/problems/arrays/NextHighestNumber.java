@@ -16,6 +16,7 @@ public class NextHighestNumber {
     public void findNextHighestNumber(int[] a){
         int cur = a[a.length-1];
         int j = a.length-2;
+        // Find the first smaller element from right
         while(j>=0){
             if (a[j] < cur){
                 break;
@@ -26,6 +27,7 @@ public class NextHighestNumber {
         if (j==-1){
             return;
         }
+        // Find the lowest element next to j
         int lowest = -1;
         for (int i=j+1;i<a.length;i++){
             if (lowest == -1 || a[i] < a[lowest]){
@@ -33,7 +35,13 @@ public class NextHighestNumber {
 
             }
         }
+        System.out.println("lowest " + lowest);
         swap(a, j, lowest);
+//
+//        for (int i=0;i<a.length;i++){
+//            System.out.print(a[i] + " ");
+//        }
+//        System.out.println();
         sort(a, j+1);
 
 
@@ -72,25 +80,25 @@ public class NextHighestNumber {
         int[] a = {5,3,4,9,7,6};
         n.findNextHighestNumber(a);
 
-        // Input 218765
-        // Output 251678
-        int[] b = {2,1,8,7,6,5};
-        n.findNextHighestNumber(b);
-
-        // Input 1234
-        // Output 1243
-        int[] c = {1,2,3,4};
-        n.findNextHighestNumber(c);
-
-        // Input 4321
-        // Output
-        int[] d = {4,3,2,1};
-        n.findNextHighestNumber(d);
-
-        // Input 534976
-        // Output 536479
-        int[] e = {5,3,4,9,7,6};
-        n.findNextHighestNumber(e);
+//        // Input 218765
+//        // Output 251678
+//        int[] b = {2,1,8,7,6,5};
+//        n.findNextHighestNumber(b);
+//
+//        // Input 1234
+//        // Output 1243
+//        int[] c = {1,2,3,4};
+//        n.findNextHighestNumber(c);
+//
+//        // Input 4321
+//        // Output
+//        int[] d = {4,3,2,1};
+//        n.findNextHighestNumber(d);
+//
+//        // Input 534976
+//        // Output 536479
+//        int[] e = {5,3,4,9,7,6};
+//        n.findNextHighestNumber(e);
 
 
     }

@@ -16,7 +16,7 @@ public class AnagramComparator implements Comparator<String> {
         return new String(c);
     }
 
-    @Override
+
     public int compare(String s, String s2) {
         return sortChars(s).compareTo(sortChars(s2));
     }

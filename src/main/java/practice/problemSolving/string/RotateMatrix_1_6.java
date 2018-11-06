@@ -27,6 +27,22 @@ public class RotateMatrix_1_6 {
         }
     }
 
+    public void rotate(int[][] matrix) {
+        for(int layer=0; layer<matrix.length/2; ++layer){
+            int first = layer;
+            int last = matrix.length-1-layer;
+
+            for(int i=first; i<last; i++){
+                int offset = i-first;
+                int top = matrix[first][i];
+                matrix[first][i] = matrix[last-offset][first];
+                matrix[last-offset][first] = matrix[last][last-offset];
+                matrix[last][last-offset] = matrix[i][last];
+                matrix[i][last] = top;
+            }
+        }
+    }
+
     public void rotate1(int[][] matrix, int n) {
         int colLength = matrix[0].length;
         for (int i = 0; i < n; i++) {
@@ -60,7 +76,8 @@ public class RotateMatrix_1_6 {
         RotateMatrix_1_6 rotateMatrix = new RotateMatrix_1_6();
         int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         rotateMatrix.printMatrix(matrix);
-        rotateMatrix.rotate1(matrix, matrix.length);
+//        rotateMatrix.rotate(matrix, matrix.length);
+        rotateMatrix.rotate(matrix);
         rotateMatrix.printMatrix(matrix);
 
     }

@@ -35,7 +35,7 @@ public class BinarySearchTreeCheck_4_5 {
         if (node == null) {
             return true;
         }
-        if (node.getData() <= min || node.getData() > max) {
+        if (node.getData() <= min || node.getData() >= max) {
             return false;
         }
         if (!checkTree(node.getLeftChild(), min, node.getData()) ||
@@ -44,6 +44,7 @@ public class BinarySearchTreeCheck_4_5 {
         }
         return true;
     }
+
 
 
     public static void main(String[] args) {
@@ -57,8 +58,8 @@ public class BinarySearchTreeCheck_4_5 {
         b.addData(60);
         b.addData(80);
 
-        printCheck(BinarySearchTreeCheck_4_5.checkBST(b.parent));
-        printCheck(binarySearchTreeCheck.checkTree(b.parent, Integer.MIN_VALUE, Integer.MAX_VALUE));
+//        printCheck(BinarySearchTreeCheck_4_5.checkBST(b.parent));
+//        printCheck(binarySearchTreeCheck.checkTree(b.parent, Integer.MIN_VALUE, Integer.MAX_VALUE));
 
         TreeNode node1 = new TreeNode(50);
         TreeNode node2 = new TreeNode(60);
@@ -70,9 +71,14 @@ public class BinarySearchTreeCheck_4_5 {
         node1.setLeftChild(node2);
         node1.setRightChild(node5);
 
-        printCheck(BinarySearchTreeCheck_4_5.checkBST(node3));
-        printCheck(binarySearchTreeCheck.checkTree(node3, Integer.MIN_VALUE, Integer.MAX_VALUE));
+//        printCheck(BinarySearchTreeCheck_4_5.checkBST(node3));
+//        printCheck(binarySearchTreeCheck.checkTree(node3, Integer.MIN_VALUE, Integer.MAX_VALUE));
 
+
+        TreeNode node11 = new TreeNode(1);
+        TreeNode node21 = new TreeNode(1);
+        node11.setLeftChild(node21);
+        printCheck(binarySearchTreeCheck.checkTree(node11, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 
     private static void printCheck(boolean value) {

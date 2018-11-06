@@ -58,7 +58,7 @@ public class MedianOfNumbers {
 
     public class MinHeapComparator implements Comparator<Integer> {
 
-        @Override
+//        @Override
         public int compare(Integer integer, Integer integer2) {
             if (integer > integer2) {
                 return -1;

@@ -39,5 +39,6 @@ public class RomanToInteger {
     public static void main(String[] args){
         RomanToInteger r = new RomanToInteger();
         System.out.println(r.romanToInt("DCCCLXIII"));
+        System.out.println(r.romanToInt("MCMIV"));
     }
 }

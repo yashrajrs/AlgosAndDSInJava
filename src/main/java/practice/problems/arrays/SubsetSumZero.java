@@ -2,10 +2,7 @@ package practice.problems.arrays;
 
 import com.google.common.collect.Sets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Given a set of number eg {5,3,1,8, -8,-4}
@@ -42,14 +39,36 @@ public class SubsetSumZero {
         return value;
     }
 
+    public void subSets2(ArrayList<Integer> input) {
+        Set<ArrayList<Integer>> result = new HashSet<>();
+        ArrayList<Integer> current = new ArrayList<>();
+        subSets2(input, 0, current, result);
+        System.out.println(result);
+    }
+
+    public void subSets2(ArrayList<Integer> input, int pos, ArrayList<Integer> current,Set<ArrayList<Integer>> result ) {
+        if(!current.isEmpty() && getValue(current) == 0) {
+            result.add(new ArrayList<>(current));
+        }
+        if (pos == input.size()) {
+            return;
+        }
+        for (int i=pos;i<input.size();i++) {
+            current.add(input.get(i));
+            subSets2(input, pos+1, current, result);
+            current.remove(current.size()-1);
+        }
+    }
+
     public static void main(String[] args) {
         SubsetSumZero subsetSumZero = new SubsetSumZero();
         ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(5, 3, 1, 8, -8, -4));
-        subsetSumZero.getSubSets(input, new ArrayList<Integer>());
-        for (ArrayList<Integer> subset : subsetSumZero.subSets) {
-            if (subset.size() < 4) {
-                System.out.println(subset);
-            }
-        }
+//        subsetSumZero.getSubSets(input, new ArrayList<Integer>());
+//        for (ArrayList<Integer> subset : subsetSumZero.subSets) {
+//            if (subset.size() < 4) {
+//                System.out.println(subset);
+//            }
+//        }
+        subsetSumZero.subSets2(input);
     }
 }

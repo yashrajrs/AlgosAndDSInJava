@@ -1,4 +1,4 @@
-package practice.problems.linkedList;
+package practice.problemSolving.linkedList;
 
 import practice.dataStructures.Node;
 import practice.dataStructures.linkedList.LinkedList;
@@ -72,15 +72,43 @@ public class PartitionToX_2_4 {
                 prev = prev.next;
             } else {
                 next.next = p;
-                prev.next = p.next;
-
-                p = prev.next;
                 next = next.next;
+
+                prev.next = p.next;
+                p = prev.next;
+
             }
         }
         next.next = null;
         prev.next = fakeHead2.next;
         return fakeHead1.next;
+    }
+
+    public ListNode partition1(ListNode head, int x) {
+        ListNode dummy1 = new ListNode(0);
+        ListNode dummy2 = new ListNode(0);
+
+        ListNode cur1 = dummy1;
+        ListNode cur2 = dummy2;
+
+        cur1.next = head;
+
+        ListNode n = head;
+
+        while(n != null) {
+            if (n.val < x) {
+                cur1 = cur1.next;
+            } else {
+                cur2.next = n;
+                cur2 = cur2.next;
+
+                cur1.next = n.next;
+            }
+            n = n.next;
+        }
+        cur1.next = dummy2.next;
+        cur2.next = null;
+        return dummy1.next;
     }
 
     public static void main(final String[] args) {
@@ -109,7 +137,7 @@ public class PartitionToX_2_4 {
         n4.next = n5;
         n5.next = n6;
 
-        ListNode res = r.partition(n1,3);
+        ListNode res = r.partition1(n1,3);
 
         while(res != null){
             System.out.print(res.val + " ");

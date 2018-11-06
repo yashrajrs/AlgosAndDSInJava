@@ -10,11 +10,26 @@ public class MatrixSearch_11_6 {
 
     public boolean search(int[][] matrix,int x){
         int row =0;
-        int col = matrix.length-1;
+        int col = matrix[0].length-1;
         while (row<=matrix.length-1 &&col>=0){
             if (matrix[row][col]==x){
                 return true;
             }else if (matrix[row][col] > x){
+                col--;
+            }else{
+                row++;
+            }
+        }
+        return false;
+    }
+
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int row = 0;
+        int col = matrix[0].length-1;
+        while(row < matrix.length && col >= 0){
+            if(matrix[row][col] == target){
+                return true;
+            }else if(matrix[row][col] > target){
                 col--;
             }else{
                 row++;
@@ -29,5 +44,8 @@ public class MatrixSearch_11_6 {
 
         System.out.println(matrixSearch.search(input,55));
         System.out.println(matrixSearch.search(input,12));
+
+        System.out.println(matrixSearch.searchMatrix(input,55));
+        System.out.println(matrixSearch.searchMatrix(input,12));
     }
 }

@@ -24,6 +24,21 @@ public class MoveZerosToLeft {
         }
     }
 
+    private void move1(Integer[] a){
+        int j = a.length-1;
+        for(int i=a.length-1;i>=0;i--){
+            if (a[0] == 0){
+                continue;
+            }
+            a[j] = a[i];
+            j--;
+        }
+        while(j>=0){
+            a[j] = 0;
+            j--;
+        }
+    }
+
     public static void main(String[] args){
         MoveZerosToLeft m = new MoveZerosToLeft();
         Integer[] a = {1,2,3,0,0,0,4,5};

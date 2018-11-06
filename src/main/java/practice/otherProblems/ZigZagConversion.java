@@ -61,7 +61,7 @@ public class ZigZagConversion {
 
     public static void main(String[] args){
         ZigZagConversion z = new ZigZagConversion();
-//        System.out.println(z.convert("PAYPALISHIRING",3));
+        System.out.println(z.convert("PAYPALISHIRING",3));
         System.out.println(z.convert("ABC",1));
     }
 }

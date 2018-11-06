@@ -23,6 +23,22 @@ public class StringReverse_1_2 {
         System.out.println("STRING " + reversed);
     }
 
+    /**
+     * First approach iterative
+     */
+    public void reverse2(final String input) {
+        StringBuffer reversed = new StringBuffer();
+        if (input == null || input.isEmpty() || input.trim().isEmpty()) {
+            System.out.println(" Input String is null / empty /blank");
+            return;
+        }
+        for(int i = input.length() - 1; i>=0 ;i--) {
+            reversed.append(input.charAt(i));
+        }
+
+        System.out.println("STRING " + reversed.toString());
+    }
+
     public String reverseString(String input) {
         if (input.length() == 1) {
             return input;
@@ -44,8 +60,8 @@ public class StringReverse_1_2 {
     public static void main(String[] args) {
 
         StringReverse_1_2 s = new StringReverse_1_2();
-        s.reverse("MY NAME IS YASHRAJ");
-        s.reverse("ABCD");
+        s.reverse2("MY NAME IS YASHRAJ");
+        s.reverse2("ABCD");
         s.reverse(null);
         s.reverse("");
         s.reverse("  ");

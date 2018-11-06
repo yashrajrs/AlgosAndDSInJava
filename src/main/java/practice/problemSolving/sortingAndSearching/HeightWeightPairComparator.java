@@ -8,7 +8,7 @@ import java.util.Comparator;
  * @author Yashraj R. Sontakke
  */
 public class HeightWeightPairComparator implements Comparator<HeightWeightPair> {
-    @Override
+
     public int compare(HeightWeightPair heightWeightPair, HeightWeightPair heightWeightPair2) {
         if (heightWeightPair.getHeight() != heightWeightPair2.getHeight()) {
             return heightWeightPair.getHeight().compareTo(heightWeightPair2.getHeight());

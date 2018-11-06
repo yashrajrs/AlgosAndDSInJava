@@ -21,39 +21,29 @@ public class ReverseAlternateLevels {
 
         int count = 1;
         list.add(root);
-        list.add(null);
 
         ArrayList<TreeNode> current = new ArrayList<TreeNode>();
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        while (!list.isEmpty()){
-            TreeNode node = list.remove(0);
 
-            if (node !=null){
-                current.add(node);
-                if (node.getLeftChild()!=null){
+        while (!list.isEmpty()){
+            int size = list.size();
+            for (int i=0;i<size;i++){
+                TreeNode node = list.remove(0);
+                if (node.getLeftChild() != null){
                     list.add(node.getLeftChild());
                 }
-                if(node.getRightChild()!=null){
+                if (node.getRightChild() != null){
                     list.add(node.getRightChild());
                 }
-            }else if (list.isEmpty()){
-                if (count%2==0){
-                    addMap(map,current,reverse(current));
-                }else{
-                    addMap(map,current,current);
-                }
-
-            }else{
-                list.add(null);
-
-                if (count%2==0){
-                    addMap(map,current,reverse(current));
-                }else{
-                    addMap(map,current,current);
-                }
-                count++;
-                current = new ArrayList<TreeNode>();
+                current.add(node);
             }
+            if (count%2==0){
+                addMap(map,current,reverse(current));
+            }else{
+                addMap(map,current,current);
+            }
+            count++;
+            current = new ArrayList<TreeNode>();
         }
         System.out.println(map.toString());
 

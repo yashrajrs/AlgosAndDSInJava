@@ -15,7 +15,7 @@ public class SortStack_3_6 {
         Stack s2 = new Stack();
         while (!s1.isEmpty()){
             Integer temp = (Integer) s1.pop();
-            while (!s2.isEmpty() && (Integer)s2.peek() > temp){
+            while (!s2.isEmpty() && (Integer)s2.peek() < temp){
                 s1.push(s2.pop());
             }
             s2.push(temp);

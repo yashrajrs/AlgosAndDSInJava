@@ -31,10 +31,25 @@ public class PalindromeNumber {
         return true;
     }
 
+    public boolean isPalindrome1(int x){
+        if (x < 0 || (x%10 == 0 && x != 0)) {
+            return false;
+        }
+        int revNum = 0;
+        while (x > revNum) {
+            revNum = revNum * 10 + x %10;
+            x /= 10;
+        }
+        return x == revNum || x == revNum/10;
+    }
+
     public static void main(String[] args){
         PalindromeNumber p = new PalindromeNumber();
         System.out.println(p.isPalindrome(212));
+        System.out.println(p.isPalindrome1(212));
         System.out.println(p.isPalindrome(213));
+        System.out.println(p.isPalindrome1(213));
         System.out.println(p.isPalindrome(2112));
+        System.out.println(p.isPalindrome1(2112));
     }
 }

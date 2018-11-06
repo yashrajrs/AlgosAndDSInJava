@@ -36,9 +36,49 @@ public class StringCompress_1_5 {
         }
     }
 
+    public int compress(char[] chars) {
+        if (chars.length == 1) {
+            return 1;
+        }
+        String output = "";
+        char current = chars[0];
+        int count = 1;
+        for (int i = 1;i <chars.length; i++) {
+            if (current == chars[i]) {
+                count++;
+            } else {
+                if (count > 1) {
+                    output = String.format("%s%c%d", output, current, count);
+                } else {
+                    output = String.format("%s%c", output, current);
+                }
+                count = 1;
+                current = chars[i];
+            }
+        }
+
+        if (count > 1) {
+            output = String.format("%s%c%d", output, current, count);
+        } else {
+            output = String.format("%s%c", output, current);
+        }
+        if (output.length() < chars.length) {
+            return output.length();
+        }
+        return chars.length;
+    }
+
+
+
     public static void main(String[] args) {
         StringCompress_1_5 s = new StringCompress_1_5();
-        s.formatString("aabcccccaaa");
-        s.formatString("abca");
+//        s.formatString("aabcccccaaa");
+//        s.formatString("abca");
+
+
+        System.out.println(s.compress(new String("aabbccc").toCharArray()));
+        System.out.println(s.compress(new String("a").toCharArray()));
+        System.out.println(s.compress(new String("abbbbbbbbbbbb").toCharArray()));
+
     }
 }

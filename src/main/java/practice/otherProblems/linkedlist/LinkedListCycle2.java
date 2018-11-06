@@ -21,6 +21,7 @@ public class LinkedListCycle2 {
             fast = fast.next.next;
 
             if (slow == fast) {
+                System.out.println(slow.val);
                 ListNode node = head;
                 while (node != slow) {
                     node = node.next;

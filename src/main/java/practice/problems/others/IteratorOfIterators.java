@@ -39,7 +39,7 @@ public class IteratorOfIterators implements Iterator{
         }
     }
 
-    @Override
+//    @Override
     public boolean hasNext() {
         if (itr !=null){
             return itr.hasNext();
@@ -47,7 +47,7 @@ public class IteratorOfIterators implements Iterator{
         return false;
     }
 
-    @Override
+//    @Override
     public Object next() {
         if (itr !=null){
             return itr.next();
@@ -55,7 +55,7 @@ public class IteratorOfIterators implements Iterator{
         return null;
     }
 
-    @Override
+//    @Override
     public void remove() {
         //To change body of implemented methods use File | Settings | File Templates.
     }

@@ -67,7 +67,7 @@ public class AllPalindromes {
     public void getPalindromes(List<Character> input, int index, ArrayList<Character> current, Set<String> result){
         if (index == input.size()){
             if (isPalindrome(current)){
-                result.add(current.toString());
+                result.add(new ArrayList<Character>(current).toString());
             }
             return;
         }

@@ -51,9 +51,32 @@ public class SubSets {
         return result;
     }
 
+
+    public List<List<Integer>> subsets1(int[] nums) {
+       if (nums == null) {
+            return  null;
+        }
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        for (int num: nums) {
+            List<List<Integer>> list = new ArrayList<>();
+            for(List<Integer> temp: result) {
+                list.add(new ArrayList<>(temp));
+            }
+            for(List<Integer> temp: list) {
+                temp.add(num);
+            }
+            list.add(Arrays.asList(num));
+            result.addAll(list);
+        }
+        result.add(new ArrayList<>());
+        return result;
+    }
+
     public static void main(String[] args){
         SubSets s = new SubSets();
         int[] input = {1, 2, 3 };
         System.out.println(s.subsets(input));
+        System.out.println(s.subsets1(input));
     }
 }

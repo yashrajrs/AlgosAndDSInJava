@@ -20,24 +20,24 @@ public class Anagrams {
             return result;
         }
 
-        HashMap<String, ArrayList<Integer>> map = new HashMap<String, ArrayList<Integer>>();
+        HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
         for (int i = 0; i < strs.length; i++) {
             char[] array = strs[i].toCharArray();
             Arrays.sort(array);
             String s = String.valueOf(array);
             if (map.get(s) == null) {
-                ArrayList<Integer> list = new ArrayList<Integer>();
-                list.add(i);
+                ArrayList<String> list = new ArrayList<String>();
+                list.add(strs[i]);
                 map.put(s, list);
             } else {
-                map.get(s).add(i);
+                map.get(s).add(strs[i]);
             }
         }
 
-        for (ArrayList<Integer> values : map.values()) {
+        for (ArrayList<String> values : map.values()) {
             if (values.size() > 1) {
-                for (Integer i : values) {
-                    result.add(strs[i]);
+                for (String i : values) {
+                    result.add(i);
                 }
             }
         }

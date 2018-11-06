@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class LeastNumberPerfectSquare {
 
     ArrayList<Integer> leastNumber = new ArrayList<Integer>();
+
     public void getLeastNumber(int input, int currentValue, ArrayList<Integer> currentNumber){
         if (currentValue == input){
             if (leastNumber.isEmpty() || currentNumber.size() < leastNumber.size()){

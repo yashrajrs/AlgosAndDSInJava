@@ -19,13 +19,11 @@ public class RemoveDuplicatesFromSortedList {
         ListNode node = head.next;
 
         while(node != null){
-            if(node.val == prev.val){
-                prev.next = node.next;
-                node = node.next;
-            }else{
-                node = node.next;
+            if (prev.val != node.val) {
+                prev.next  = node;
                 prev = prev.next;
             }
+            node = node.next;
 
         }
         return head;

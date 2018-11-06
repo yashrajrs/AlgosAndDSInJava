@@ -1,4 +1,4 @@
-package practice.problems.linkedList;
+package practice.problemSolving.linkedList;
 
 import practice.dataStructures.Node;
 import practice.dataStructures.linkedList.LinkedList;

@@ -1,5 +1,7 @@
 package practice.otherProblems;
 
+import java.util.Stack;
+
 /**
  * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
  * <p/>
@@ -39,6 +41,7 @@ public class StackWithMin {
     }
 
     public class Node {
+
         int value, min;
         private Node next;
 

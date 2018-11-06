@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import practice.dataStructures.trees.TreeNode;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -42,6 +43,36 @@ public class PathValue_4_9 {
         return sum;
     }
 
+    public List<ArrayList<Integer>> getPaths(TreeNode node, Integer value) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        if (node == null) {
+            return result;
+        }
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(node.getData());
+        dfs(node, value-node.getData(), result, list);
+        return result;
+    }
+
+    public void dfs(TreeNode node, Integer sum, ArrayList<ArrayList<Integer>> result, ArrayList<Integer> list) {
+        if (node.getLeftChild() == null && node.getRightChild() == null && sum == 0) {
+            ArrayList<Integer> temp = new ArrayList<Integer>();
+            temp.addAll(list);
+            result.add(temp);
+        }
+
+        if (node.getLeftChild() != null) {
+            list.add(node.getLeftChild().getData());
+            dfs(node.getLeftChild(), sum - node.getLeftChild().getData(), result, list);
+            list.remove(list.size()-1);
+        }
+
+        if (node.getRightChild() != null) {
+            list.add(node.getRightChild().getData());
+            dfs(node.getRightChild(), sum - node.getRightChild().getData(), result, list);
+            list.remove(list.size()-1);
+        }
+    }
     public static void main(String[] args) {
         TreeNode node1 = new TreeNode(5);
         TreeNode node2 = new TreeNode(3);
@@ -62,5 +93,8 @@ public class PathValue_4_9 {
         pathValue.getPaths(node1, new ArrayList<Integer>(), 10);
 
         System.out.println(pathValue.paths.toString());
+
+        List<ArrayList<Integer>> paths = pathValue.getPaths(node1, 10);
+        System.out.println(paths.toString());
     }
 }

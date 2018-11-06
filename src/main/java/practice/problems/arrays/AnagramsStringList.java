@@ -24,7 +24,7 @@ public class AnagramsStringList {
             if (anagramMap.containsKey(key)) {
                 ArrayList<String> strings = anagramMap.get(key);
                 strings.add(string);
-                anagramMap.put(key, strings);
+//                anagramMap.put(key, strings);
             } else {
                 ArrayList<String> strings = new ArrayList<String>(Arrays.asList(string));
                 anagramMap.put(key, strings);

@@ -1,7 +1,8 @@
-package practice.problems.linkedList;
+package practice.problemSolving.linkedList;
 
 import practice.dataStructures.Node;
 import practice.dataStructures.linkedList.LinkedList;
+import practice.otherProblems.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,6 @@ public class Palindrome_2_7 {
         }
         return true;
     }
-
 
     public static void main(final String[] args) {
         Palindrome_2_7 r = new Palindrome_2_7();

@@ -34,17 +34,17 @@ public class IteratorBinaryTree implements Iterator{
         inorderTraversal(node.right);
     }
 
-    @Override
+//    @Override
     public boolean hasNext() {
         return !queue.isEmpty();
     }
 
-    @Override
+//    @Override
     public Object next() {
         return queue.poll();
     }
 
-    @Override
+//    @Override
     public void remove() {
     }
 

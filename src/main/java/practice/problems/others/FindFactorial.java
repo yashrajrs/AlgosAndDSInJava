@@ -68,6 +68,9 @@ public class FindFactorial {
         if (n == val){
             if (list.size() == 1){
                 list.add(1);
+                result.add(new ArrayList<Integer>(list));
+                list.remove(list.size()-1);
+                return;
             }
             result.add(new ArrayList<Integer>(list));
             return;
