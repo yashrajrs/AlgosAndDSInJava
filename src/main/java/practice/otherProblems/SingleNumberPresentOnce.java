@@ -23,9 +23,27 @@ public class SingleNumberPresentOnce {
         return result;
     }
 
+    void printRepeating(int arr[], int size)
+    {
+        int i;
+        System.out.println("The repeating elements are : ");
+
+        for (i = 0; i < size; i++)
+        {
+            if (arr[Math.abs(arr[i])] >= 0)
+                arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
+            else
+                System.out.print(Math.abs(arr[i]) + " ");
+        }
+    }
+
     public static void main(String[] args){
         SingleNumberPresentOnce s = new SingleNumberPresentOnce();
         int[] input = {23, 34,56,21,21,56,78,23, 34};
         System.out.println(s.getNumberPresentOnce(input));
+
+
+        int[] input1 = {1, 2, 2, 3};
+        s.printRepeating(input1, input1.length);
     }
 }
