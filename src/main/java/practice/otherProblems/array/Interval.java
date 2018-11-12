@@ -10,8 +10,8 @@ package practice.otherProblems.array;
  * @author Yashraj R. Sontakke
  */
 public class Interval {
-    int start;
-    int end;
+    public int start;
+    public int end;
 
     @Override
     public String toString() {
@@ -21,12 +21,12 @@ public class Interval {
                 '}';
     }
 
-    Interval() {
+    public Interval() {
         start = 0;
         end = 0;
     }
 
-    Interval(int s, int e) {
+    public Interval(int s, int e) {
         start = s;
         end = e;
     }

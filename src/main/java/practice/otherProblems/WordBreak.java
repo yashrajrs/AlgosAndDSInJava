@@ -75,5 +75,6 @@ public class WordBreak {
 
         Set<String> input1 = Sets.newHashSet("leet", "code");
         System.out.println(w.wordBreak("leetcode" , input1));
+        System.out.println(w.wordBreak2("leetcode" , input1));
     }
 }

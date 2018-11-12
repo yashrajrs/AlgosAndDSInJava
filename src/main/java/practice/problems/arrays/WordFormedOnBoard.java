@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -143,5 +144,43 @@ public class WordFormedOnBoard {
         } else {
             System.out.println("Word can be formed");
         }
+        System.out.println(wordFormedOnBoard.canBeFormed1("TUA"));
+    }
+
+    public boolean canBeFormed1(String input) {
+        for (int i=0;i<board.length;i++) {
+            for(int j=0;j<board[0].length;j++) {
+                if (board[i][j] == input.charAt(0)) {
+                    Location location = new Location(i, j);
+                    ArrayList<Location> locations = new ArrayList<>();
+                    locations.add(location);
+                    return dfs(input, 1, locations, i+1, j) ||
+                            dfs(input, 1, locations, i-1, j) ||
+                            dfs(input, 1, locations, i, j+1) ||
+                            dfs(input, 1, locations, i, j-1) ||
+                            dfs(input, 1, locations, i-1, j-1) ||
+                            dfs(input, 1, locations, i+1, j+1);
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean dfs(String input, int count, ArrayList<Location> locations, int i, int j) {
+        if (count == input.length() && isValidWord(locations, input.length())) {
+            return true;
+        }
+        int m = board.length;
+        int n = board[0].length;
+        if (i< 0 || i>m || j<0 || j> n || board[i][j] != input.charAt(count)) {
+            return false;
+        }
+        locations.add(new Location(i, j));
+        return dfs(input, count+1, locations, i+1, j) ||
+                dfs(input, count+1, locations, i-1, j) ||
+                dfs(input, count+1, locations, i, j+1) ||
+                dfs(input, count+1, locations, i, j-1) ||
+                dfs(input, count+1, locations, i-1, j-1) ||
+                dfs(input, count+1, locations, i+1, j+1);
     }
 }

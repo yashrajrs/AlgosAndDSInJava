@@ -64,6 +64,7 @@ public class NumberToString {
         System.out.println(numberToString.numToString(-12));
         System.out.println(numberToString.numToString(453560));
         System.out.println(numberToString.numToString(1000));
+        System.out.println(numberToString.numToString(1234567));
 
     }
 

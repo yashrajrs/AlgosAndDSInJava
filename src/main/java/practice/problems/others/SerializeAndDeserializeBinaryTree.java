@@ -166,6 +166,64 @@ public class SerializeAndDeserializeBinaryTree {
 
     }
 
+    public String serialize(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        StringBuffer sb = new StringBuffer();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                sb.append(node.getData()+",");
+                queue.add(node.getLeftChild());
+                queue.add(node.getRightChild());
+            } else {
+                sb.append("#,");
+            }
+        }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        if (data == null || data.length() == 0)
+            return null;
+
+        String[] arr = data.split(",");
+        TreeNode root = new TreeNode(Integer.parseInt(arr[0]));
+
+
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+
+        int i = 1;
+        while (!queue.isEmpty()) {
+            TreeNode t = queue.poll();
+            if (t == null) {
+                continue;
+            }
+            if (!arr[i].equals("#")) {
+                t.setLeftChild(new TreeNode(Integer.parseInt(arr[i])));
+                queue.offer(t.getLeftChild());
+            } else {
+                t.setLeftChild(null);
+                queue.offer(null);
+            }
+            i++;
+            if (!arr[i].equals("#")) {
+                t.setRightChild(new TreeNode(Integer.parseInt(arr[i])));
+                queue.offer(t.getRightChild());
+            } else {
+                t.setRightChild(null);
+                queue.offer(null);
+            }
+            i++;
+        }
+        return root;
+    }
 
     public static void main(String[] args) {
         BinarySearchTree b = new BinarySearchTree();
@@ -177,8 +235,14 @@ public class SerializeAndDeserializeBinaryTree {
         b.addData(90);
 
         SerializeAndDeserializeBinaryTree serializeAndDeserializeBinaryTree = new SerializeAndDeserializeBinaryTree();
-        serializeAndDeserializeBinaryTree.convert(b.parent);
+//        serializeAndDeserializeBinaryTree.convert(b.parent);
+//
+//        serializeAndDeserializeBinaryTree.convert1(b.parent);
 
-        serializeAndDeserializeBinaryTree.convert1(b.parent);
+        String st = serializeAndDeserializeBinaryTree.serialize(b.parent);
+        System.out.println(st);
+
+        System.out.println(serializeAndDeserializeBinaryTree.deserialize(st));
+
     }
 }

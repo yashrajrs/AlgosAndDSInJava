@@ -30,5 +30,11 @@ public class BestTimeToSellStock1 {
 
         int[] input = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         System.out.println(b.maxProfit(input));
+
+        int[] input2 = {7,1,5,3,6,4};
+        System.out.println(b.maxProfit(input2));
+
+        int[] input3 = {7,6,4,3,1};
+        System.out.println(b.maxProfit(input3));
     }
 }

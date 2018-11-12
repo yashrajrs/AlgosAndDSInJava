@@ -30,7 +30,7 @@ public class AnagramsStringList {
                 anagramMap.put(key, strings);
             }
         }
-
+        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>(anagramMap.values());
         System.out.println(anagramMap.values().toString());
     }
 
