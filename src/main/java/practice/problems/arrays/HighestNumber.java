@@ -44,7 +44,7 @@ public class HighestNumber {
             }
         }
         int highest = currentHighest;
-        for (int i=0;i<array.length;i++){
+        for (int i=index;i<array.length;i++){
             swap(array, index, i);
             int number = nextHighest(array, index+1, input, currentHighest);
             if (number < currentHighest){

@@ -37,7 +37,7 @@ public class PathSum2 {
         list.add(root.val);
         sum-= root.val;
         if(root.left == null && root.right == null && sum == 0){
-            result.add(new ArrayList<Integer>(list));
+            result.add(new ArrayList<>(list));
         }else{
             pathSum(root.left, sum, result, list);
             pathSum(root.right, sum, result, list);

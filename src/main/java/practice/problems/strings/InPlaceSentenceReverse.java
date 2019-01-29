@@ -13,6 +13,8 @@ package practice.problems.strings;
  */
 public class InPlaceSentenceReverse {
 
+
+
     public void reverseSentence(String input){
         if (input.length() <=1 || !input.contains(" ")){
             return;
@@ -38,9 +40,9 @@ public class InPlaceSentenceReverse {
     }
 
     public void reverseWord(char[] input, int start, int end){
-        if (end - start == 1){
-            return;
-        }
+//        if (end - start == 1){
+//            return;
+//        }
         if (end >=input.length){
             end = input.length - 1;
         }
@@ -72,7 +74,8 @@ public class InPlaceSentenceReverse {
    public static void main(String[] args){
        String input =  "I wish you a merry Christmas";
        InPlaceSentenceReverse inPlaceSentenceReverse =new InPlaceSentenceReverse();
-       inPlaceSentenceReverse.reverseSentence(input);
-       System.out.println(inPlaceSentenceReverse.reverseWords(input));
+//       inPlaceSentenceReverse.reverseSentence(input);
+       inPlaceSentenceReverse.reverseSentence("the sky is blue");
+//       System.out.println(inPlaceSentenceReverse.reverseWords(input));
    }
 }

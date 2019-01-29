@@ -3,6 +3,7 @@ package practice.problems.others;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  * Numbers are randomly generated and passed to a method. Write a program to find
@@ -14,6 +15,26 @@ public class MedianOfNumbers {
 
     private ArrayList<Integer> lowPQ = new ArrayList<Integer>();
     private ArrayList<Integer> highPQ = new ArrayList<Integer>();
+
+    PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+    public void addNum(int num){
+        maxHeap.offer(num);
+        minHeap.offer(maxHeap.poll());
+
+        if (maxHeap.size() < minHeap.size()) {
+            maxHeap.offer(minHeap.poll());
+        }
+    }
+
+    public double findMedian() {
+        if (maxHeap.size() == minHeap.size()) {
+            return (double) (maxHeap.peek() + minHeap.peek())/2;
+        } else {
+            return maxHeap.peek();
+        }
+    }
 
     public void addElement(int randomNumber) {
         if (highPQ.isEmpty()) {
@@ -80,5 +101,13 @@ public class MedianOfNumbers {
         medianOfNumbers.addElement(40);
 
         System.out.println(medianOfNumbers.getMedian());
+
+        medianOfNumbers.addNum(10);
+        medianOfNumbers.addNum(15);
+        medianOfNumbers.addNum(20);
+        medianOfNumbers.addNum(5);
+        medianOfNumbers.addNum(30);
+        medianOfNumbers.addNum(40);
+        System.out.println(medianOfNumbers.findMedian());
     }
 }

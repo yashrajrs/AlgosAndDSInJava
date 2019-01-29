@@ -8,10 +8,7 @@ package practice.otherProblems.string;
  */
 public class LongestPalindromeSubstring {
     public String longestPalindrome(String s) {
-        if(s == null){
-            return null;
-        }
-        if(s.length() == 1){
+        if(s == null || s.length() <= 1){
             return s;
         }
         String longest = s.substring(0,1);

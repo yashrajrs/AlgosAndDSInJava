@@ -47,6 +47,7 @@ public class WordLAdder {
 
             if (currentWord.equals(endWord)) {
                 result = Math.min(result, currentDistance);
+                return result;
             }
 
             for (int i = 0; i < currentWord.length(); i++) {

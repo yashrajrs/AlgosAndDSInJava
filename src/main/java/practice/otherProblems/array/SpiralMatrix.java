@@ -68,9 +68,55 @@ public class SpiralMatrix {
         return result;
     }
 
+    public List<Integer> spiralOrder_1(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return result;
+        }
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int left = 0;
+        int right = n-1;
+        int top = 0;
+        int bottom = m - 1;
+
+        while (result.size() < m*n) {
+            for (int j=left;j<=right;j++) {
+                result.add(matrix[top][j]);
+            }
+            top++;
+
+            for (int j=top;j<=bottom;j++) {
+                result.add(matrix[j][right]);
+            }
+            right--;
+
+            if (bottom<top){
+                break;
+            }
+
+            for (int j=right;j>=left;j--) {
+                result.add(matrix[bottom][j]);
+            }
+            bottom--;
+
+            if (right<left) {
+                break;
+            }
+            for (int j=bottom;j>=top;j--) {
+                result.add(matrix[j][left]);
+            }
+            left++;
+        }
+        return result;
+    }
+
     public static void main(String[] args){
         SpiralMatrix s = new SpiralMatrix();
         int[][] input = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         System.out.println(s.spiralOrder(input).toString());
+
+        System.out.println(s.spiralOrder_1(input).toString());
     }
 }

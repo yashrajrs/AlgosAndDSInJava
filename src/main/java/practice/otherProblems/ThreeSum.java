@@ -35,13 +35,11 @@ public class ThreeSum {
 
                 while(start < end){
                     if(num[start] + num[end] == negate){
-                        ArrayList<Integer> temp = new ArrayList<Integer>();
-                        temp.add(num[i]);
-                        temp.add(num[start]);
-                        temp.add(num[end]);
-                        result.add(temp);
+                        List<Integer> list = Arrays.asList(num[i], num[start], num[end]);
+                        result.add(list);
                         start++;
                         end--;
+                        // handle duplicates
                         while(start < end && num[end] == num[end+1]){
                             end--;
                         }
