@@ -35,7 +35,7 @@ public class ReverseNodesInKGroup {
             i++;
             if (i%k==0) {
                 pre = reverse(pre, p.next);
-                pre = pre.next;
+                p = pre.next;
             } else {
                 p = p.next;
             }

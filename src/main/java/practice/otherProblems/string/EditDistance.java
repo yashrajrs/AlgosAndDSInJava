@@ -46,5 +46,7 @@ public class EditDistance {
     public static void main(String[] args){
         EditDistance e = new EditDistance();
         System.out.println(e.minDistance("abc", "def"));
+        System.out.println(e.minDistance("horse", "ros"));
+        System.out.println(e.minDistance("intention", "execution"));
     }
 }

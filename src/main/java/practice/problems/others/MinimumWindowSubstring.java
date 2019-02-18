@@ -25,7 +25,7 @@ public class MinimumWindowSubstring {
         HashMap<Character, Integer> target = new HashMap<>();
         for (Character c: t.toCharArray()) {
             if (target.containsKey(c)) {
-                target.put(c, target.get(c) + 1);
+                target.put(c, target.getOrDefault(c,0) + 1);
             } else {
                 target.put(c, 1);
             }

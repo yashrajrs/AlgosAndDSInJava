@@ -46,6 +46,7 @@ public class Isomorphic {
 
     public static void main(String[] args){
         Isomorphic i = new Isomorphic();
+        System.out.println(i.isIsomorphic("egg","add"));
         System.out.println(i.isIsomorphic("foo","app"));
         System.out.println(i.isIsomorphic("turtle","tletur"));
         System.out.println(i.isIsomorphic("ab","ca"));

@@ -96,6 +96,9 @@ public class ExclusiveTimeOfFunctions {
         ExclusiveTimeOfFunctions exclusiveTimeOfFunctions = new ExclusiveTimeOfFunctions();
         List<String> strings = Arrays.asList("0:start:0", "1:start:2", "1:end:5", "0:end:6");
         int[] ints = exclusiveTimeOfFunctions.exclusiveTime2(2, strings);
+        for(int i:ints) {
+            System.out.println(i);
+        }
 
     }
 }

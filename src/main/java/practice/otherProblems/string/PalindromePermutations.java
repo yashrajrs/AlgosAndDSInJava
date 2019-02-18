@@ -43,5 +43,6 @@ public class PalindromePermutations {
         System.out.println(palindromePermutations.canPermutePalindrome("aap"));
         System.out.println(palindromePermutations.canPermutePalindrome("aasp"));
         System.out.println(palindromePermutations.canPermutePalindrome("code"));
+        System.out.println(palindromePermutations.canPermutePalindrome("tebbem"));
     }
 }

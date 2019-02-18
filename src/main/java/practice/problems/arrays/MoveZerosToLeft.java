@@ -27,7 +27,7 @@ public class MoveZerosToLeft {
     private void move1(Integer[] a){
         int j = a.length-1;
         for(int i=a.length-1;i>=0;i--){
-            if (a[0] == 0){
+            if (a[i] == 0){
                 continue;
             }
             a[j] = a[i];

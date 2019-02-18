@@ -16,7 +16,7 @@ public class ContainerWithMostWater {
         int left = 0;
         int right = height.length-1;
         int max = 0;
-        while(left < max){
+        while(left < right){
             max = Math.max(max, (right - left) * Math.min(height[left], height[right]));
             if(height[left] < height[right]){
                 left++;
@@ -32,5 +32,8 @@ public class ContainerWithMostWater {
         ContainerWithMostWater c= new ContainerWithMostWater();
         int[] height = {1, 2, 3, 2, 3, 1, 5, 4};
         System.out.println(c.maxArea(height));
+
+        int[] height1 = {1,8,6,2,5,4,8,3,7};
+        System.out.println(c.maxArea(height1));
     }
 }

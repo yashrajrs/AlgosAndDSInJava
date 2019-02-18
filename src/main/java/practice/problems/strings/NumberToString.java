@@ -28,7 +28,7 @@ public class NumberToString {
         String str = "";
         while (number > 0) {
             if (number % 1000 != 0) {
-                str = numToString100(number % 1000) + bigs[count] + " " + str;
+                str = numToString100(number % 1000) + " " + bigs[count] + " " + str;
 
             }
             number /= 1000;
@@ -36,12 +36,12 @@ public class NumberToString {
 
 
         }
-        return str;
+        return str.trim();
     }
 
     public String numToString100(Integer number) {
         String str = "";
-        if (number > 100) {
+        if (number >= 100) {
             str = digits[number / 100 - 1] + " Hundred ";
             number %= 100;
         }
@@ -55,16 +55,17 @@ public class NumberToString {
         if (number >= 1 && number <= 9) {
             str = str + digits[number - 1] + " ";
         }
-        return str;
+        return str.trim();
     }
 
     public static void main(String[] args) {
         NumberToString numberToString = new NumberToString();
-        System.out.println(numberToString.numToString(1234));
-        System.out.println(numberToString.numToString(-12));
-        System.out.println(numberToString.numToString(453560));
-        System.out.println(numberToString.numToString(1000));
-        System.out.println(numberToString.numToString(1234567));
+//        System.out.println(numberToString.numToString(1234));
+//        System.out.println(numberToString.numToString(-12));
+//        System.out.println(numberToString.numToString(453560));
+//        System.out.println(numberToString.numToString(1000));
+//        System.out.println(numberToString.numToString(1234567));
+        System.out.println(numberToString.numToString(100));
 
     }
 

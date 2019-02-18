@@ -19,13 +19,7 @@ public class MergeKLists {
         }
         PriorityQueue<ListNode> q = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>(){
             public int compare(ListNode a, ListNode b){
-                if(a.val > b.val){
-                    return 1;
-                }else if(a.val == b.val){
-                    return 0;
-                }else{
-                    return -1;
-                }
+                return a.val - b.val;
             }
         });
 
