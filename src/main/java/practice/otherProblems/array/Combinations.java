@@ -21,7 +21,7 @@ import java.util.List;
  * @author Yashraj R. Sontakke
  */
 public class Combinations {
-
+    int count = 0;
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (n <= 0 || n < k) {
@@ -30,6 +30,7 @@ public class Combinations {
         ArrayList<Integer> list = new ArrayList<Integer>();
 
         dfs(n, k, 1, list, result);
+        System.out.println(count);
         return result;
     }
 
@@ -40,6 +41,7 @@ public class Combinations {
         }
         for (int i = start; i <= n; i++) {
             list.add(i);
+            count++;
             dfs(n, k, i + 1, list, result);
             list.remove(list.size() - 1);
         }

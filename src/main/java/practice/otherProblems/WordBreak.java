@@ -1,8 +1,9 @@
 package practice.otherProblems;
 
 import com.google.common.collect.Sets;
+import practice.hackerrank.KthElementLinkedList;
 
-import java.util.Set;
+import java.util.*;
 
 /**
  * Given a string s and a dictionary of words dict, determine
@@ -70,11 +71,37 @@ public class WordBreak {
         return false;
     }
 
+    public boolean wordBreak(String s, List<String> wordDict) {
+        Queue<Integer> queue = new LinkedList<>();
+        int[] visited = new int[s.length()];
+        queue.add(0);
+
+        while(!queue.isEmpty()) {
+            int start = queue.remove();
+            if(visited[start] == 0) {
+                for(int end = start+1;end<=s.length();end++) {
+                    if(wordDict.contains(s.substring(start, end))) {
+                        queue.add(end);
+                        if(end == s.length()) {
+                            return true;
+                        }
+                    }
+                }
+
+                visited[start] = 1;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args){
         WordBreak w = new WordBreak();
 
         Set<String> input1 = Sets.newHashSet("leet", "code");
         System.out.println(w.wordBreak("leetcode" , input1));
         System.out.println(w.wordBreak2("leetcode" , input1));
+
+        List<String> input2 = Arrays.asList("leet", "code");
+        System.out.println(w.wordBreak("leetcode" , input2));
     }
 }

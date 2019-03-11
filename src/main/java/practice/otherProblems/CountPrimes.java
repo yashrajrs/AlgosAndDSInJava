@@ -34,6 +34,7 @@ public class CountPrimes {
     public static void main(String[] args){
         CountPrimes c = new CountPrimes();
         System.out.println(c.countPrimes(7));
+        System.out.println(c.countPrimes(3));
     }
 }
 

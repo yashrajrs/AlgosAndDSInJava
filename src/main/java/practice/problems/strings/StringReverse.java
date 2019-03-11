@@ -21,14 +21,17 @@ public class StringReverse {
         return output;
     }
 
+    int sum = 0;
     /**
      * Recursive approach
      */
     public String reverseRecursive(String input) {
+
+        System.out.println(sum++);
         if (input.length() <= 1) {
             return input;
         }
-        return reverse(input.substring(1)) + input.charAt(0);
+        return reverseRecursive(input.substring(1)) + input.charAt(0);
     }
 
     public static void main(String[] args) {

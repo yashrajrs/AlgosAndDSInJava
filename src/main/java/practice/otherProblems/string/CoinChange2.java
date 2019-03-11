@@ -46,6 +46,7 @@ public class CoinChange2 {
 
     public void change(int amount, int[] coins, Set<List<Integer>> result, List<Integer> temp, int currentVal) {
         if(amount == currentVal) {
+
             Integer[] arr = new Integer[temp.size()];
             for (int i=0;i<temp.size();i++) {
                 arr[i] = temp.get(i);
@@ -71,8 +72,28 @@ public class CoinChange2 {
         }
     }
 
+    /*
+             amount(j) 0 1 2 3 4 5
+       coin(i)
+        0              1 0 0 0 0 0
+        1              1 1 1 1 1 1
+        2              1 1 2 2 3 3
+        5              1 1 2 2 3 4
+       */
+    public int change2(int amount, int[] coins) {
+        int[] dp = new int[amount+1];
+        dp[0] = 1;
+        for(int coin:coins) {
+            for(int j=coin;j<=amount;j++) {
+                dp[j] += dp[j-coin];
+            }
+        }
+        return dp[amount];
+    }
+
     public static void main(String[] args){
         CoinChange2 c = new CoinChange2();
         System.out.println(c.change(5, new int[]{1, 2, 5}));
+        System.out.println(c.change2(5, new int[]{1, 2, 5}));
     }
 }

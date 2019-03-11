@@ -55,14 +55,15 @@ public class SubsetSumZero {
         }
         for (int i=pos;i<input.size();i++) {
             current.add(input.get(i));
-            subSets2(input, pos+1, current, result);
+            subSets2(input, i+1, current, result);
             current.remove(current.size()-1);
         }
     }
 
     public static void main(String[] args) {
         SubsetSumZero subsetSumZero = new SubsetSumZero();
-        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(5, 3, 1, 8, -8, -4));
+//        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(5, 3, 1, 8, -8, -4));
+        ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(5, 3, 1, 8, -8));
 //        subsetSumZero.getSubSets(input, new ArrayList<Integer>());
 //        for (ArrayList<Integer> subset : subsetSumZero.subSets) {
 //            if (subset.size() < 4) {
@@ -70,5 +71,27 @@ public class SubsetSumZero {
 //            }
 //        }
         subsetSumZero.subSets2(input);
+        System.out.println(subsetSumZero.getSubsets(input));
     }
+    int sum = 0;
+    public List<List<Integer>> getSubsets(List<Integer> nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        getSubs(nums, 0, 0, new ArrayList<Integer>(), result);
+        return result;
+    }
+
+    public void getSubs(List<Integer> nums, int index, int value, ArrayList<Integer> current, List<List<Integer>> result) {
+        System.out.println(sum++);
+        if(!current.isEmpty() && value == 0) {
+            result.add(new ArrayList<Integer>(current));
+        }
+        for(int i=index;i<nums.size();i++) {
+            current.add(nums.get(i));
+            getSubs(nums, i+1, value + nums.get(i), current, result);
+            current.remove(current.size()-1);
+        }
+    }
+
+
+
 }

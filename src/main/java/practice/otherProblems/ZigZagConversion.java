@@ -1,5 +1,8 @@
 package practice.otherProblems;
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 /**
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
  * (you may want to display this pattern in a fixed font for better legibility)
@@ -63,5 +66,6 @@ public class ZigZagConversion {
         ZigZagConversion z = new ZigZagConversion();
         System.out.println(z.convert("PAYPALISHIRING",3));
         System.out.println(z.convert("ABC",1));
+        new PriorityQueue<Integer>(Collections.reverseOrder());
     }
 }

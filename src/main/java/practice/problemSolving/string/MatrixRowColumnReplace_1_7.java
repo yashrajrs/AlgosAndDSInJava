@@ -37,7 +37,7 @@ public class MatrixRowColumnReplace_1_7 {
 
     public void printMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
+            for (int j = 0; j < matrix[0].length; j++) {
                 System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
@@ -103,5 +103,10 @@ public class MatrixRowColumnReplace_1_7 {
         System.out.println();
         s.setZeroes(matrix1);
         s.printMatrix(matrix1);
+
+        int[][] matrix2 = {{0,1,2,0}, {3,4,5,2}, {1,3,1,5}};
+        System.out.println();
+        s.setZeroes(matrix2);
+        s.printMatrix(matrix2);
     }
 }

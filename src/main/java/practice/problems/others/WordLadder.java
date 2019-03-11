@@ -15,7 +15,7 @@ import java.util.*;
  *
  * @author Yashraj R. Sontakke
  */
-public class DictionaryConvertWords {
+public class WordLadder {
 
     public LinkedList<String> transform(String startWord, String stopWord, Set<String> dictionary) {
         startWord = startWord.toUpperCase();
@@ -70,7 +70,7 @@ public class DictionaryConvertWords {
     }
 
     public static void main(String[] args) {
-        DictionaryConvertWords convertWords = new DictionaryConvertWords();
+        WordLadder convertWords = new WordLadder();
         Set<String> dictionary = ImmutableSet.of("DAMP", "LAMP", "LIMP", "LIME", "LIKE", "ACES", "ICIC", "DSAZ");
         System.out.println(convertWords.transform("damp", "like", dictionary));
     }

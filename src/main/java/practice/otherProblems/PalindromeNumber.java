@@ -45,11 +45,13 @@ public class PalindromeNumber {
 
     public static void main(String[] args){
         PalindromeNumber p = new PalindromeNumber();
-        System.out.println(p.isPalindrome(212));
-        System.out.println(p.isPalindrome1(212));
-        System.out.println(p.isPalindrome(213));
-        System.out.println(p.isPalindrome1(213));
-        System.out.println(p.isPalindrome(2112));
-        System.out.println(p.isPalindrome1(2112));
+//        System.out.println(p.isPalindrome(212));
+//        System.out.println(p.isPalindrome1(212));
+//        System.out.println(p.isPalindrome(213));
+//        System.out.println(p.isPalindrome1(213));
+//        System.out.println(p.isPalindrome(2112));
+//        System.out.println(p.isPalindrome1(2112));
+
+        System.out.println(p.isPalindrome(1234321));
     }
 }

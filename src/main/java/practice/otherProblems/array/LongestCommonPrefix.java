@@ -48,5 +48,6 @@ public class LongestCommonPrefix {
 
         String[] input3= {"yash", "raj"};
         System.out.println(l.longestCommonPrefix(input3));
+
     }
 }
